@@ -33,40 +33,65 @@
         <svg viewBox="0 0 1793 904" preserveAspectRatio="none">
           <defs>
             <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
             </filter>
             <filter id="waveGlow" x="-50%" y="-100%" width="200%" height="300%">
-              <feGaussianBlur stdDeviation="2" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              <feGaussianBlur stdDeviation="2" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
             </filter>
           </defs>
-          <path class="frame-glow" d="M170 493 C170 302 330 187 510 187 C650 187 743 224 896 224 C1050 224 1140 187 1285 187 C1465 187 1625 302 1625 493 C1625 683 1465 798 1285 798 C1140 798 1050 660 896 660 C743 660 650 798 510 798 C330 798 170 683 170 493Z"/>
-          <path class="frame-glow-2" d="M184 493 C184 315 335 202 512 202 C655 202 758 238 896 238 C1035 238 1137 202 1281 202 C1458 202 1609 315 1609 493 C1609 671 1458 784 1281 784 C1137 784 1035 646 896 646 C758 646 655 784 512 784 C335 784 184 671 184 493Z"/>
-          <path d="M225 493 C225 335 365 245 525 245 C660 245 748 278 896 278 C1045 278 1133 245 1268 245 C1428 245 1568 335 1568 493 C1568 650 1428 741 1268 741 C1133 741 1045 607 896 607 C748 607 660 741 525 741 C365 741 225 650 225 493Z" fill="none" stroke="rgba(141,67,255,.22)" stroke-width="1"/>
+          <path class="frame-glow"
+            d="M170 493 C170 302 330 187 510 187 C650 187 743 224 896 224 C1050 224 1140 187 1285 187 C1465 187 1625 302 1625 493 C1625 683 1465 798 1285 798 C1140 798 1050 660 896 660 C743 660 650 798 510 798 C330 798 170 683 170 493Z" />
+          <path class="frame-glow-2"
+            d="M184 493 C184 315 335 202 512 202 C655 202 758 238 896 238 C1035 238 1137 202 1281 202 C1458 202 1609 315 1609 493 C1609 671 1458 784 1281 784 C1137 784 1035 646 896 646 C758 646 655 784 512 784 C335 784 184 671 184 493Z" />
+          <path
+            d="M225 493 C225 335 365 245 525 245 C660 245 748 278 896 278 C1045 278 1133 245 1268 245 C1428 245 1568 335 1568 493 C1568 650 1428 741 1268 741 C1133 741 1045 607 896 607 C748 607 660 741 525 741 C365 741 225 650 225 493Z"
+            fill="none" stroke="rgba(141,67,255,.22)" stroke-width="1" />
         </svg>
       </div>
       <div class="lens">
         <div class="data-noise"></div>
-        <div class="side-control left"><div class="side-arc"></div><div class="ticks"></div></div>
-        <div class="side-control right"><div class="side-arc"></div><div class="ticks"></div></div>
+        <div class="side-control left">
+          <div class="side-arc"></div>
+          <div class="ticks"></div>
+        </div>
+        <div class="side-control right">
+          <div class="side-arc"></div>
+          <div class="ticks"></div>
+        </div>
         <div class="center-seam"></div>
         <section class="hud">
           <div class="hud-frame"></div>
           <div class="hud-dots"><i></i><i></i><i></i><i></i></div>
-          <div class="cross a"></div><div class="cross b"></div>
+          <div class="cross a"></div>
+          <div class="cross b"></div>
           <div class="hud-title">AI AVLOKAN 2k26</div>
           <div class="hud-meta">SYSTEM / BOOT / IMMERSIVE INTERFACE</div>
-          <div class="hud-progress"><div class="progress-fill"></div><div class="progress-sheen"></div></div>
+          <div class="hud-progress">
+            <div class="progress-fill"></div>
+            <div class="progress-sheen"></div>
+          </div>
           <div class="percent" id="percent-value">0 %</div>
         </section>
         <div class="telemetry">
-          <div class="dial">50</div><div class="dial">87</div><div class="dial">21</div>
-          <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="dial">50</div>
+          <div class="dial">87</div>
+          <div class="dial">21</div>
+          <div class="bars">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
         </div>
         <div class="wave">
           <svg viewBox="0 0 180 70" preserveAspectRatio="none">
-            <path d="M0 36 C16 10 28 58 43 36 S67 2 83 36 S111 69 128 36 S153 17 180 36 L180 54 C153 35 145 54 128 54 S99 38 83 54 S58 76 43 54 S16 34 0 54Z"/>
+            <path
+              d="M0 36 C16 10 28 58 43 36 S67 2 83 36 S111 69 128 36 S153 17 180 36 L180 54 C153 35 145 54 128 54 S99 38 83 54 S58 76 43 54 S16 34 0 54Z" />
           </svg>
         </div>
         <div class="brand-mark">TF</div>
@@ -119,8 +144,8 @@
 
       <div class="hero__wordmark-slot">
         <!-- Replaces plain text title -->
-        <img src="assets/images/AI_AVLOKAN2.png" alt="AI AVLOKAN 2k26" class="hero__wordmark glitch-flicker skeleton" loading="lazy"
-          onload="this.classList.remove('skeleton')">
+        <img src="assets/images/AI_AVLOKAN.png" alt="AI AVLOKAN 2k26" class="hero__wordmark glitch-flicker skeleton"
+          loading="lazy" onload="this.classList.remove('skeleton')">
       </div>
 
       <p class="hero__tagline reveal reveal-delay-1">A National Level Technical Fest by Dept. of AIML</p>
@@ -477,7 +502,7 @@
   <script src="js/main.js"></script>
 
   <script>
-    (function(){
+    (function () {
       const entry = document.getElementById("vr-entry");
       const percent = document.getElementById("percent-value");
       if (!entry) return;
@@ -497,7 +522,7 @@
 
       const start = performance.now();
 
-      function updateLoader(now){
+      function updateLoader(now) {
         const elapsed = now - start;
         const progress = Math.min(
           100,
@@ -506,7 +531,7 @@
 
         percent.textContent = Math.floor(progress) + " %";
 
-        if(progress < 100){
+        if (progress < 100) {
           requestAnimationFrame(updateLoader);
         } else {
           percent.textContent = "100 %";

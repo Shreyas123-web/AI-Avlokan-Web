@@ -2,9 +2,8 @@ const EVENTS = [
   {
     id: "evt-01",
     name: "CodeStorm — Competitive Programming",
-    categoryLabel: "TECH",
     shortCode: "CODESTORM",
-    accentColor: "#ef4444", // Crimson
+    accentColor: "#7c3aed", // Crimson
     tagline: "Crack the code before the clock runs out.",
     poster: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop", // Placeholder code image
     description: "A high-intensity competitive programming contest testing algorithmic thinking, speed, and accuracy across multiple rounds of increasing difficulty.",
@@ -22,7 +21,6 @@ const EVENTS = [
   {
     id: "evt-02",
     name: "AI Hackfest — 12hr Hackathon",
-    categoryLabel: "CORE EVENT",
     shortCode: "AI HACKFEST",
     accentColor: "#22d3ee", // Cyan
     tagline: "Build. Break. Ship. Repeat.",
@@ -42,7 +40,6 @@ const EVENTS = [
   {
     id: "evt-03",
     name: "RoboWars — Arena Combat",
-    categoryLabel: "ROBOTICS",
     shortCode: "ROBOWARS",
     accentColor: "#facc15", // Gold
     tagline: "Metal meets metal in the ultimate showdown.",
@@ -61,9 +58,8 @@ const EVENTS = [
   {
     id: "evt-04",
     name: "Tech Debate — AI Ethics",
-    categoryLabel: "DEBATE",
     shortCode: "ETHICS",
-    accentColor: "#7c3aed", // Violet
+    accentColor: "#ef4444 ", // Violet
     tagline: "Is AI our doom or salvation?",
     poster: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop",
     description: "A formal debate competition exploring the ethical implications of artificial intelligence and machine learning in modern society.",
@@ -84,25 +80,22 @@ function renderEventCard(event) {
   return `
     <article class="game-card reveal" style="--theme: ${event.accentColor}; --theme-light: ${event.accentColor}; --theme-dark: ${event.accentColor};">
         <div class="card-background"></div>
+        
+        <div class="left-indicators">
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+
+        <div class="vertical-title">
+            ${verticalTitleSpans}
+        </div>
+
         <div class="card-panel">
             <div class="card-image">
                 <img src="${event.poster}" alt="${event.name}" class="skeleton" loading="lazy" onload="this.classList.remove('skeleton')">
-            </div>
-
-            <div class="logo">
-                ${event.categoryLabel}
-            </div>
-
-            <div class="left-indicators">
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-            </div>
-
-            <div class="vertical-title">
-                ${verticalTitleSpans}
             </div>
 
             <div class="content">
@@ -136,7 +129,7 @@ function openEventModal(eventId) {
   document.getElementById('modal-desc').textContent = event.description;
   document.getElementById('modal-time').textContent = event.timings;
   document.getElementById('modal-prize').textContent = event.prize;
-  
+
   const orgContainer = document.getElementById('modal-organizers');
   orgContainer.innerHTML = event.organizers.map(org => `
     <div class="organizer">
