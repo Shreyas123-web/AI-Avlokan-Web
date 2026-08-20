@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI AVLOKAN 2k26 | AIML Technical Fest</title>
+  <meta name="description"
+    content="AI AVLOKAN 2k26 is a premium National Level Technical Fest organized by the Dept. of AIML. Experience the future of technology, innovation, and AI.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css"> <!-- Will create this for component specific styles -->
+</head>
+
+<body>
+  <!-- ========================================================
+       AR/VR ENTRY OVERLAY
+       ======================================================== -->
+  <div id="vr-entry" aria-hidden="true">
+    <div class="atmosphere"></div>
+    <div class="boot-label">INITIALIZING IMMERSIVE INTERFACE</div>
+    <div class="goggles" aria-hidden="true">
+      <div class="goggle-shell">
+        <svg viewBox="0 0 1793 904" preserveAspectRatio="none">
+          <defs>
+            <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="waveGlow" x="-50%" y="-100%" width="200%" height="300%">
+              <feGaussianBlur stdDeviation="2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path class="frame-glow" d="M170 493 C170 302 330 187 510 187 C650 187 743 224 896 224 C1050 224 1140 187 1285 187 C1465 187 1625 302 1625 493 C1625 683 1465 798 1285 798 C1140 798 1050 660 896 660 C743 660 650 798 510 798 C330 798 170 683 170 493Z"/>
+          <path class="frame-glow-2" d="M184 493 C184 315 335 202 512 202 C655 202 758 238 896 238 C1035 238 1137 202 1281 202 C1458 202 1609 315 1609 493 C1609 671 1458 784 1281 784 C1137 784 1035 646 896 646 C758 646 655 784 512 784 C335 784 184 671 184 493Z"/>
+          <path d="M225 493 C225 335 365 245 525 245 C660 245 748 278 896 278 C1045 278 1133 245 1268 245 C1428 245 1568 335 1568 493 C1568 650 1428 741 1268 741 C1133 741 1045 607 896 607 C748 607 660 741 525 741 C365 741 225 650 225 493Z" fill="none" stroke="rgba(141,67,255,.22)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="lens">
+        <div class="data-noise"></div>
+        <div class="side-control left"><div class="side-arc"></div><div class="ticks"></div></div>
+        <div class="side-control right"><div class="side-arc"></div><div class="ticks"></div></div>
+        <div class="center-seam"></div>
+        <section class="hud">
+          <div class="hud-frame"></div>
+          <div class="hud-dots"><i></i><i></i><i></i><i></i></div>
+          <div class="cross a"></div><div class="cross b"></div>
+          <div class="hud-title">AI AVLOKAN 2k26</div>
+          <div class="hud-meta">SYSTEM / BOOT / IMMERSIVE INTERFACE</div>
+          <div class="hud-progress"><div class="progress-fill"></div><div class="progress-sheen"></div></div>
+          <div class="percent" id="percent-value">0 %</div>
+        </section>
+        <div class="telemetry">
+          <div class="dial">50</div><div class="dial">87</div><div class="dial">21</div>
+          <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="wave">
+          <svg viewBox="0 0 180 70" preserveAspectRatio="none">
+            <path d="M0 36 C16 10 28 58 43 36 S67 2 83 36 S111 69 128 36 S153 17 180 36 L180 54 C153 35 145 54 128 54 S99 38 83 54 S58 76 43 54 S16 34 0 54Z"/>
+          </svg>
+        </div>
+        <div class="brand-mark">TF</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="assets/images/AIMLLOGO.png" alt="Logo" class="logo-mark-img">
+        <span class="logo-text">AI AVLOKAN 2K26</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="events.html">Events</a>
+        <a href="team.html">Team</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a href="#register" class="btn btn-primary nav-cta">Register Now</a>
+
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero__content">
+      <div class="hero__logo-wrapper" aria-hidden="true">
+        <div class="multi-ring-container">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="ring ring-core">
+            <img src="assets/images/AIMLLOGO.png" alt="AIML Logo" class="core-inner-img">
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__wordmark-slot">
+        <!-- Replaces plain text title -->
+        <img src="assets/images/AI_AVLOKAN2.png" alt="AI AVLOKAN 2k26" class="hero__wordmark glitch-flicker skeleton" loading="lazy"
+          onload="this.classList.remove('skeleton')">
+      </div>
+
+      <p class="hero__tagline reveal reveal-delay-1">A National Level Technical Fest by Dept. of AIML</p>
+
+      <div class="hero__meta reveal reveal-delay-2">
+        <span class="badge">📅 25 Sept 2026</span>
+        <span class="badge">📍 Main Campus, Block C</span>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Countdown & Stats -->
+  <section class="countdown-stats" id="stats">
+    <div class="container">
+      <div id="countdown-container">
+        <div id="countdown-grid" class="cyber-countdown reveal">
+          <div class="cyber-box">
+            <div class="flip-digit" id="cd-days">00</div><small>DAYS</small>
+          </div>
+          <div class="cyber-box">
+            <div class="flip-digit" id="cd-hours">00</div><small>HOURS</small>
+          </div>
+          <div class="cyber-box">
+            <div class="flip-digit" id="cd-mins">00</div><small>MINS</small>
+          </div>
+          <div class="cyber-box">
+            <div class="flip-digit" id="cd-secs">00</div><small>SECS</small>
+          </div>
+        </div>
+        <div id="countdown-message" class="countdown-message text-center" style="display:none;"></div>
+      </div>
+
+      <div id="stats-section" class="cyber-stats-grid reveal reveal-delay-1">
+        <div class="cyber-stat-panel">
+          <div class="cyber-stat-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+              <line x1="4" y1="22" x2="4" y2="15"></line>
+            </svg>
+          </div>
+          <div class="cyber-stat-info">
+            <h2 class="stat-number" data-target="8" data-suffix="+">0</h2>
+            <p>Events & Workshops</p>
+          </div>
+        </div>
+        <div class="cyber-stat-panel">
+          <div class="cyber-stat-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+              <path d="M4 22h16"></path>
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+            </svg>
+          </div>
+          <div class="cyber-stat-info">
+            <h2 class="stat-number" data-target="48000" data-prefix="₹">0</h2>
+            <p>Total Prize Pool</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-group reveal reveal-delay-2">
+        <h3 class="cta-headline">Ready to be part of the experience?</h3>
+        <p class="cta-subtext">Explore the events and secure your spot today.</p>
+        <div class="cta-buttons">
+          <a href="events.html" class="cta-btn-primary">Explore Events &rarr;</a>
+          <a href="#register" class="cta-btn-secondary">Register Now &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal-left">
+          <h2>About <span class="gradient-text">AI AVLOKAN 2k26</span></h2>
+          <p>AI Avlokan is the flagship technical symposium of the AIML Department. It serves as a nexus for brilliant
+            minds to converge, compete, and create. From grueling hackathons to high-octane robotics, we challenge the
+            limits of innovation.</p>
+          <div class="about-chips">
+            <span class="chip">Live Workshops</span>
+            <span class="chip">Hackathons</span>
+            <span class="chip">Guest Speakers</span>
+            <span class="chip">Networking</span>
+          </div>
+        </div>
+        <div class="about-image reveal-right">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
+            alt="Fest Event" class="skeleton glass-panel" loading="lazy" onload="this.classList.remove('skeleton')">
+        </div>
+      </div>
+
+      <div class="about-grid reverse-mobile mt-6">
+        <div class="about-image reveal-left">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop"
+            alt="AIML Department" class="skeleton glass-panel" loading="lazy"
+            onload="this.classList.remove('skeleton')">
+        </div>
+        <div class="about-content reveal-right">
+          <h2>About the Department &mdash; <span class="gradient-text">AIML</span></h2>
+          <p>The Department of Artificial Intelligence & Machine Learning is dedicated to pioneering research and
+            education in next-generation computing. We empower students to build intelligent systems that solve
+            real-world problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Preview Section -->
+  <section id="events" class="events-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Flagship <span class="gradient-text">Events</span></h2>
+        <p>Discover what awaits you in the arena.</p>
+      </div>
+
+      <!-- Injected by events.js -->
+      <div id="featured-event-container" class="featured-event-grid"></div>
+
+      <div class="centered-cta mt-4 reveal">
+        <a href="events.html" class="btn btn-secondary">View All Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Preview Section -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Meet the <span class="gradient-text">Team</span></h2>
+        <p>The minds behind the magic.</p>
+      </div>
+
+      <!-- Injected by team.js -->
+      <div id="team-preview-container" class="team-grid"></div>
+
+      <div class="centered-cta mt-4 reveal">
+        <a href="team.html" class="btn btn-secondary">View All Members</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="schedule-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Event Day <span class="gradient-text">Schedule</span></h2>
+        <p>25 September 2026</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Rendered via HTML for simplicity -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <span class="time">08:00 AM – 09:00 AM</span>
+            <h3>Registration & Check-in</h3>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <span class="time">09:00 AM – 09:30 AM</span>
+            <h3>Inaugural Ceremony</h3>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <span class="time">10:00 AM – 01:00 PM</span>
+            <h3>CodeStorm / RoboWars Setup</h3>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <span class="time">02:00 PM – 05:00 PM</span>
+            <h3>AI Hackfest & Tech Debate</h3>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <span class="time">05:00 PM – 06:00 PM</span>
+            <h3>Valedictory & Prize Distribution</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+
+      <div class="faq-accordion glass-panel reveal">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is there a registration fee?</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, there is a nominal base registration fee. Some flagship events might
+              require a separate small pool fee.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I participate in multiple events?</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, as long as the event timings do not overlap. Check the schedule before
+              registering.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is accommodation provided for outstation participants?</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Accommodation can be arranged on prior request at a subsidized cost. Please
+              contact the logistics head.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Get In <span class="gradient-text">Touch</span></h2>
+        <p>Have a question? Send us a message.</p>
+      </div>
+
+      <form id="contact-form" class="glass-panel contact-form reveal">
+        <div class="form-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" required placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="contact-query">Message</label>
+          <textarea id="contact-query" rows="4" required placeholder="How can we help?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="navbar__logo">
+          <img src="assets/images/AIMLLOGO.png" alt="Logo" class="logo-mark-img">
+          <span class="logo-text">AI AVLOKAN 2K26</span>
+        </a>
+        <p class="mt-2 text-muted">The flagship technical symposium of the AIML Department.</p>
+        <div class="social-icons mt-3">
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="events.html">Events</a>
+        <a href="team.html">Team</a>
+        <a href="#schedule">Schedule</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>aiavlokan2k26@gmail.com</p>
+        <p>+91 90000 00000</p>
+        <p>Main Campus, Block C</p>
+      </div>
+      <div class="footer-col">
+        <h4>Organized By</h4>
+        <p>Dept. of AIML</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AI AVLOKAN &mdash; All Rights Reserved.</p>
+      <p>Made with ❤️ by the Core Team</p>
+    </div>
+  </footer>
+
+  <!-- Event Details Modal -->
+  <div id="event-modal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+      <button class="modal-close" onclick="closeEventModal()">&times;</button>
+      <div class="modal-body">
+        <img id="modal-poster" src="" alt="Poster" class="modal-image">
+        <div class="modal-info">
+          <h2 id="modal-title">Event Title</h2>
+          <p id="modal-desc" class="text-muted">Description...</p>
+          <div class="modal-meta">
+            <div><strong>Time:</strong> <span id="modal-time"></span></div>
+            <div><strong>Prize:</strong> <span id="modal-prize" class="gradient-text"></span></div>
+          </div>
+          <div class="modal-organizers">
+            <strong>Organizers:</strong>
+            <div id="modal-organizers"></div>
+          </div>
+          <div class="modal-actions">
+            <a href="#" id="modal-rulebook" class="btn btn-secondary">Rulebook</a>
+            <a href="#" id="modal-register" class="btn btn-primary">Register Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/background.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/team.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    (function(){
+      const entry = document.getElementById("vr-entry");
+      const percent = document.getElementById("percent-value");
+      if (!entry) return;
+
+      const TOTAL = 1600;
+      const LOAD_START = 40;
+      const LOAD_DURATION = 1300;
+
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          entry.classList.add("is-active");
+        });
+      });
+
+      const start = performance.now();
+
+      function updateLoader(now){
+        const elapsed = now - start;
+        const progress = Math.min(
+          100,
+          Math.max(0, ((elapsed - LOAD_START) / LOAD_DURATION) * 100)
+        );
+
+        percent.textContent = Math.floor(progress) + " %";
+
+        if(progress < 100){
+          requestAnimationFrame(updateLoader);
+        } else {
+          percent.textContent = "100 %";
+        }
+      }
+
+      requestAnimationFrame(updateLoader);
+
+      window.setTimeout(() => {
+        entry.classList.add("is-done");
+      }, TOTAL);
+
+      window.setTimeout(() => {
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+        entry.remove();
+      }, TOTAL + 280);
+    })();
+  </script>
+</body>
+
+</html>
