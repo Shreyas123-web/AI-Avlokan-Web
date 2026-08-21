@@ -1,79 +1,114 @@
 const TEAM = [
   {
     id: "mem-01",
-    name: "Dr. Priya Deshmukh",
-    role: "Faculty Coordinator",
-    department: "AIML",
+    name: "Dr. Chetan K R",
+    role: "Prof. and Head of the Department",
+    department: "Dept of AIML",
     category: "faculty",
-    accentColor: "#facc15",
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
-    socials: { linkedin: "#" }
+    showOnHome: true,
+    photo: "assets/teams/faculty/chetan.jpg"
   },
   {
     id: "mem-02",
-    name: "Arjun Mehta",
-    role: "Event Head",
-    department: "AIML",
-    category: "student",
+    name: "Dr. Ashwini J P",
+    role: "Associate Professor",
+    department: "Dept of AIML",
+    category: "faculty",
     showOnHome: true,
-    accentColor: "#7c3aed",
-    photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop",
-    socials: { linkedin: "#", instagram: "#" }
+    photo: "assets/teams/faculty/ashwini.jpg"
   },
   {
     id: "mem-03",
-    name: "Riya Singh",
-    role: "Technical Lead",
-    department: "CSE",
-    category: "student",
+    name: "Mr. Sayyed Johar",
+    role: "Assistant Professor",
+    department: "Dept of AIML",
+    category: "faculty",
     showOnHome: true,
-    accentColor: "#22d3ee",
-    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
-    socials: { linkedin: "#", github: "#" }
+    photo: "assets/teams/faculty/johar.jpg"
   },
   {
     id: "mem-04",
-    name: "Vikram Das",
-    role: "Design Lead",
-    department: "AIML",
-    category: "student",
+    name: "Mr. Ranjan V",
+    role: "Assistant Prof. and team Coordinator",
+    department: "Dept of AIML",
+    category: "faculty",
     showOnHome: true,
-    accentColor: "#ef4444",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-    socials: { instagram: "#", dribbble: "#" }
+    photo: "assets/teams/faculty/ranjan.jpeg"
   },
   {
     id: "mem-05",
-    name: "Sneha Reddy",
-    role: "Marketing Head",
-    department: "AIML",
-    category: "student",
+    name: "Mrs. Shaziya Banu S",
+    role: "Assistant Professor",
+    department: "Dept of AIML",
+    category: "faculty",
     showOnHome: true,
-    accentColor: "#facc15",
-    photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400&auto=format&fit=crop",
-    socials: { linkedin: "#", instagram: "#" }
+    photo: "assets/teams/faculty/shaziya.jpg"
   },
   {
     id: "mem-06",
-    name: "Kabir Khan",
-    role: "Logistics Head",
-    department: "ECE",
-    category: "student",
+    name: "Mr. Nishanth S",
+    role: "Assistant Professor",
+    department: "Dept of AIML",
+    category: "faculty",
     showOnHome: true,
-    accentColor: "#7c3aed",
-    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
-    socials: { linkedin: "#" }
+    photo: "assets/teams/faculty/nishanth.jpg"
   },
   {
     id: "mem-07",
-    name: "Anjali Verma",
-    role: "Public Relations",
-    department: "CSE",
-    category: "student",
+    name: "Ms. Aaliya Waseem",
+    role: "Assistant Professor",
+    department: "Dept of AIML",
+    category: "faculty",
     showOnHome: true,
-    accentColor: "#22d3ee",
-    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop",
-    socials: { linkedin: "#", twitter: "#" }
+    photo: "assets/teams/faculty/aaliya.jpg"
+  },
+  {
+    id: "mem-08",
+    name: "Vidhaat Mallappa Chavalagi",
+    role: "Chairman",
+    department: "Dept. of AIML",
+    category: "student",
+    photo: "assets/teams/students/vidhaat.jpg"
+  },
+  {
+    id: "mem-09",
+    name: "Anagha C",
+    role: "Vice Chairman",
+    department: "Dept of AIML",
+    category: "student",
+    photo: "assets/teams/students/anagha.png"
+  },
+  {
+    id: "mem-10",
+    name: "Shreya R Chittaragi",
+    role: "Secretary",
+    department: "Dept of AIML",
+    category: "student",
+    photo: "assets/teams/students/shreya.jpg"
+  },
+  {
+    id: "mem-11",
+    name: "Thrishanth H S",
+    role: "Joint Secretary",
+    department: "Dept of AIML",
+    category: "student",
+    photo: "assets/teams/students/thrishanth.jpg"
+  },
+  {
+    id: "mem-12",
+    name: "Vinay N V",
+    role: "Treasurer",
+    department: "Dept of AIML",
+    category: "student",
+    photo: "assets/teams/students/vinaynv.jpg"
+  },
+  {
+    id: "mem-13",
+    name: "Kaveri",
+    role: "Joint Treasurer",
+    department: "Dept of AIML",
+    category: "student",
+    photo: "assets/teams/students/kaveri.jpg"
   }
 ];
 
@@ -113,7 +148,7 @@ function renderTeamCard(member) {
         <div class="content">
             <h2 class="member-name">${member.name}</h2>
             <div class="member-role">${member.role}</div>
-            <div class="member-dept" style="color: #00d2ff; font-size: clamp(0.7rem, 2vw, 12px); font-weight: 600; margin-top: 4px; letter-spacing: 1px;">${member.department}</div>
+            <div class="member-dept" style="color: #00d2ff; font-size: clamp(0.9rem, 2.5vw, 14px); font-weight: 600; margin-top: 4px; letter-spacing: 1px;">${member.department}</div>
         </div>
     </div>
   `;

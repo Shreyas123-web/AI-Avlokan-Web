@@ -1109,13 +1109,14 @@
   top: 8%;
 
   width: 89%;
-  height: 82%;
+  height: 90%;
 
   z-index: 4;
 
   pointer-events: none;
 
   border: 1px solid rgba(255, 255, 255, .8);
+  /* border-bottom: none; */
 
   clip-path: polygon(12% 0%,
       88% 0%,
@@ -1123,9 +1124,9 @@
       100% 42%,
       93% 49%,
       93% 86%,
-      82% 100%,
-      22% 100%,
-      22% 93%,
+      70% 100%,   /* 1. Reduced from 82% to shorten the right side */
+    30% 100%,   /* 2. Shifted right from 22% to 35% */
+    40% 93%,    /* 3. Matched the step-up point to 35% so it aligns cleanly */
       10% 93%,
       0% 82%,
       0% 16%);
@@ -1203,7 +1204,7 @@
 
   left: 16%;
   right: 16%;
-  bottom: 7%;
+  bottom: 2%;
 
   z-index: 6;
 
@@ -1232,7 +1233,7 @@
 .member-role {
   margin-top: 7px;
 
-  font-size: clamp(0.7rem, 2vw, 12px);
+  font-size: 1rem;
 
   letter-spacing: 1px;
 
@@ -1817,4 +1818,13 @@ button.success {
 
 .filter-tab.active {
   color: #fff;
+}
+
+@media (min-width: 768px) {
+  .team-card .member-name {
+    font-size: 16px;
+  }
+  .team-card .member-role {
+    font-size: 12px;
+  }
 }

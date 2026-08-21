@@ -11,6 +11,7 @@ const EVENTS = [
     prize: "₹6,000",
     date: "25 Sept 2026",
     eventCategory: "Technical",
+    teamSize: "1-2 Members",
     featured: true,
     organizers: [
       { name: "Rohan Sharma", phone: "+91 90000 00001" },
@@ -31,6 +32,7 @@ const EVENTS = [
     prize: "₹15,000",
     date: "25 Sept 2026",
     eventCategory: "Technical",
+    teamSize: "1-2 Members",
     featured: false,
     organizers: [
       { name: "Kavya Nair", phone: "+91 90000 00003" },
@@ -51,6 +53,7 @@ const EVENTS = [
     prize: "₹10,000",
     date: "25 Sept 2026",
     eventCategory: "Technical",
+    teamSize: "1-2 Members",
     featured: false,
     organizers: [
       { name: "Rahul Singh", phone: "+91 90000 00005" }
@@ -70,6 +73,7 @@ const EVENTS = [
     prize: "₹4,000",
     date: "25 Sept 2026",
     eventCategory: "Non-Technical",
+    teamSize: "1-2 Members",
     featured: false,
     organizers: [
       { name: "Neha Gupta", phone: "+91 90000 00006" }
@@ -177,7 +181,7 @@ function openEventModal(eventId) {
 
   document.getElementById('modal-title').textContent = event.name;
   document.getElementById('modal-poster').src = event.poster;
-  document.getElementById('modal-desc').textContent = event.description;
+  document.getElementById('modal-desc').innerHTML = `${event.description}<br><br><span style="color: var(--accent-secondary); font-weight: bold;">Team: ${event.teamSize}</span>`;
   document.getElementById('modal-time').textContent = event.timings;
   document.getElementById('modal-prize').textContent = event.prize;
 
