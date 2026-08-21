@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize scroll reveal AFTER dynamic elements are inserted
   initScrollReveal();
   
+  // Initialize Back to Top button
+  initBackToTop();
+  
   // Loading screen logic
   const loader = document.getElementById('loader');
   if (loader) {
@@ -75,9 +78,12 @@ function initNavbar() {
   });
 
   if (menuToggle && navLinks) {
+    const burgerWrap = document.querySelector('.burger-wrap');
+    
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('active');
+      if (burgerWrap) burgerWrap.classList.toggle('active');
       document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
     });
     
@@ -86,6 +92,7 @@ function initNavbar() {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
+        if (burgerWrap) burgerWrap.classList.remove('active');
         document.body.style.overflow = '';
       });
     });
@@ -260,5 +267,26 @@ function initContactForm() {
       btn.classList.remove('success');
       form.reset();
     }, 3000);
+  });
+}
+
+/* --- Back to Top Logic --- */
+function initBackToTop() {
+  const backToTopBtn = document.getElementById('backToTop');
+  if (!backToTopBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 }

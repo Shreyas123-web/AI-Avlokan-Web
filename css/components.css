@@ -173,22 +173,142 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  z-index: 101;
+/* =========================
+   MOBILE MENU TOGGLE (Burger)
+========================== */
+.burger-wrap {
+  position: relative;
+  display: none; /* hidden on desktop */
+}
+.burger-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px dashed rgba(34, 211, 238, 0.4);
+  animation: spinRadar 10s linear infinite;
+  pointer-events: none;
+  transition: border-color 0.35s ease;
+}
+.burger-wrap.active::after {
+  border-color: rgba(236, 72, 153, 0.45);
+}
+@keyframes spinRadar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.menu-toggle span {
-  width: 24px;
+.menu-toggle.burger {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(34, 211, 238, 0.4);
+  background: var(--bg-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 0 0 rgba(236, 72, 153, 0);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  z-index: 101;
+}
+.menu-toggle.burger.active {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 22px rgba(236, 72, 153, 0.35);
+}
+.menu-toggle.burger::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: 0;
+}
+.menu-toggle.burger.active::before {
+  width: 140%;
+  height: 140%;
+}
+.menu-toggle.burger .lines {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  z-index: 1;
+}
+.menu-toggle.burger .lines span {
+  position: absolute;
+  left: 0;
+  width: 100%;
   height: 2px;
+  border-radius: 2px;
   background: var(--text-primary);
-  transition: 0.3s;
+  transition: transform 0.4s ease, top 0.3s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+.menu-toggle.burger.active .lines span {
+  background: var(--bg-primary);
+  box-shadow: none;
+}
+.menu-toggle.burger .lines span:nth-child(1) { top: 0; }
+.menu-toggle.burger .lines span:nth-child(2) { top: 6px; }
+.menu-toggle.burger .lines span:nth-child(3) { top: 12px; }
+
+.menu-toggle.burger.active .lines span:nth-child(1) {
+  top: 6px;
+  transform: rotate(45deg);
+}
+.menu-toggle.burger.active .lines span:nth-child(2) {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.menu-toggle.burger.active .lines span:nth-child(3) {
+  top: 6px;
+  transform: rotate(-45deg);
+}
+
+/* =========================
+   BACK TO TOP BUTTON
+========================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--accent-secondary);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.4);
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(34, 211, 238, 0.6);
+}
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* Hero Section */
@@ -1709,20 +1829,12 @@ button.success {
     display: none;
   }
 
-  .menu-toggle {
-    display: flex;
+  .burger-wrap {
+    display: inline-flex;
   }
 
-  .menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+  .navbar.scrolled {
+    padding: 24px 0; /* Keep consistent padding on mobile to prevent jump */
   }
 
   .hero__meta {
@@ -1803,7 +1915,7 @@ button.success {
   color: var(--text-secondary);
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   padding: 10px 24px;
   border-radius: 30px;
   cursor: pointer;
