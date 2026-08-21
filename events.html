@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events | AI AVLOKAN 2k26</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
+
 <body>
   <!-- Scroll Progress -->
   <div id="scroll-progress"></div>
@@ -21,16 +25,16 @@
   <nav class="navbar">
     <div class="container navbar__inner">
       <a href="index.html" class="navbar__logo">
-        <div class="logo-mark">A</div>
+        <img src="assets/images/AIMLLOGO.png" alt="Logo" class="logo-mark-img">
         <span class="logo-text">AI AVLOKAN 2K26</span>
       </a>
-      
+
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="events.html" class="active">Events</a>
         <a href="team.html">Team</a>
       </div>
-      
+
       <a href="#register" class="btn btn-primary nav-cta">Register Now</a>
       <button class="menu-toggle"><span></span><span></span><span></span></button>
     </div>
@@ -39,7 +43,7 @@
   <!-- Page Header -->
   <header class="page-header mt-5">
     <div class="container">
-      <h1 class="gradient-text reveal">All Events</h1>
+      <h1 class="gradient-text reveal" style="padding-top: 40px; font-size: clamp(2rem, 4vw, 3rem);">All Events</h1>
       <p class="reveal reveal-delay-1 text-muted">Compete, learn, and conquer.</p>
     </div>
   </header>
@@ -47,6 +51,14 @@
   <!-- Events Section -->
   <section class="events-page-content pt-2">
     <div class="container">
+      <div class="event-filter-container reveal mb-5">
+        <div class="event-filter-pill">
+          <div class="filter-slider"></div>
+          <button class="filter-tab active" data-filter="all">ALL</button>
+          <button class="filter-tab" data-filter="Technical">TECHNICAL</button>
+          <button class="filter-tab" data-filter="Non-Technical">NON-TECHNICAL</button>
+        </div>
+      </div>
       <div id="all-events-container" class="all-events-grid"></div>
     </div>
   </section>
@@ -61,9 +73,22 @@
         </a>
         <p class="mt-2 text-muted">The flagship technical symposium of the AIML Department.</p>
         <div class="social-icons mt-3">
-          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-          <a href="#" aria-label="X (Twitter)"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A66C2"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -86,7 +111,11 @@
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 AI AVLOKAN &mdash; All Rights Reserved.</p>
-      <p>Made with ❤️ by the Core Team</p>
+      <p>Made with <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"
+          style="vertical-align: text-bottom; color: #ff3366;">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg> by the Core Team</p>
     </div>
   </footer>
 
@@ -120,4 +149,5 @@
   <script src="js/events.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

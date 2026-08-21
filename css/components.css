@@ -208,15 +208,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
 }
 
 .hero__logo-wrapper {
   position: relative;
-  width: 140px;
-  height: 140px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  margin-top: 40px;
+  margin-bottom: 8px;
   animation: float 6s ease-in-out infinite;
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -280,8 +280,8 @@
 }
 
 .core-inner-img {
-  width: 85%;
-  height: 85%;
+  width: 95%;
+  height: 95%;
   object-fit: contain;
   border-radius: 50%;
   transition: transform 0.4s ease;
@@ -682,9 +682,17 @@
 .card-background {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 15%, rgba(255, 255, 255, .15), transparent 30%),
-    radial-gradient(circle at 80% 80%, var(--theme-dark), transparent 45%),
-    linear-gradient(135deg, #181500, var(--theme-dark), #171400);
+  background:
+    radial-gradient(circle at 30% 15%,
+      color-mix(in srgb, var(--theme-light) 30%, transparent),
+      transparent 30%),
+    radial-gradient(circle at 80% 80%,
+      var(--theme-dark),
+      transparent 45%),
+    linear-gradient(135deg,
+      var(--theme-dark),
+      color-mix(in srgb, var(--theme) 55%, #000),
+      var(--theme-dark));
   opacity: 0;
   transition: opacity .45s ease;
 }
@@ -707,7 +715,7 @@
   overflow: hidden;
   background: #000;
   border: 3px solid var(--theme);
-  clip-path: polygon(25px 0, calc(100% - 25px) 0, 100% 25px, 100% calc(100% - 25px), calc(100% - 25px) 100%, 25px 100%, 0 calc(100% - 25px), 0 25px);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
   transition: border-color .45s ease, box-shadow .45s ease;
 }
 
@@ -740,6 +748,28 @@
   bottom: 0;
   height: 35%;
   background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .6) 60%, #000 100%);
+}
+
+.event-category {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--theme-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 15;
+  background: #000;
+  padding: 0 12px;
+  line-height: 18px;
+  transition: color .45s ease;
+}
+
+.game-card:hover .event-category {
+  color: #fff;
 }
 
 
@@ -1730,4 +1760,61 @@ button.success {
   .modal-info {
     width: 60%;
   }
+}
+
+/* Event Filters */
+.event-filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.event-filter-pill {
+  position: relative;
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  padding: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.filter-slider {
+  position: absolute;
+  top: 4px;
+  left: 4px; 
+  height: calc(100% - 8px);
+  width: 0; 
+  background: var(--accent-gradient);
+  border-radius: 30px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 0;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
+
+.filter-tab {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  outline: none;
+  letter-spacing: 1px;
+}
+
+.filter-tab:hover {
+  color: var(--text-primary);
+}
+
+.filter-tab.active {
+  color: #fff;
 }

@@ -10,6 +10,7 @@ const EVENTS = [
     timings: "10:00 AM – 1:00 PM",
     prize: "₹6,000",
     date: "25 Sept 2026",
+    eventCategory: "Technical",
     featured: true,
     organizers: [
       { name: "Rohan Sharma", phone: "+91 90000 00001" },
@@ -29,6 +30,7 @@ const EVENTS = [
     timings: "9:00 AM – 9:00 PM",
     prize: "₹15,000",
     date: "25 Sept 2026",
+    eventCategory: "Technical",
     featured: false,
     organizers: [
       { name: "Kavya Nair", phone: "+91 90000 00003" },
@@ -48,6 +50,7 @@ const EVENTS = [
     timings: "11:00 AM – 4:00 PM",
     prize: "₹10,000",
     date: "25 Sept 2026",
+    eventCategory: "Technical",
     featured: false,
     organizers: [
       { name: "Rahul Singh", phone: "+91 90000 00005" }
@@ -66,6 +69,7 @@ const EVENTS = [
     timings: "2:00 PM – 4:00 PM",
     prize: "₹4,000",
     date: "25 Sept 2026",
+    eventCategory: "Non-Technical",
     featured: false,
     organizers: [
       { name: "Neha Gupta", phone: "+91 90000 00006" }
@@ -80,6 +84,7 @@ function renderEventCard(event) {
   return `
     <article class="game-card reveal" style="--theme: ${event.accentColor}; --theme-light: ${event.accentColor}; --theme-dark: ${event.accentColor};">
         <div class="card-background"></div>
+        <div class="event-category">${event.eventCategory}</div>
         
         <div class="left-indicators">
             <span class="indicator"></span>
@@ -112,13 +117,59 @@ function renderEventCard(event) {
   `;
 }
 
-function renderEvents(containerId, isFeaturedOnly = false) {
+function renderEvents(containerId, isFeaturedOnly = false, filter = 'all') {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const eventsToRender = isFeaturedOnly ? EVENTS.filter(e => e.featured) : EVENTS;
+  let eventsToRender = isFeaturedOnly ? EVENTS.filter(e => e.featured) : EVENTS;
+  
+  if (filter !== 'all') {
+    eventsToRender = eventsToRender.filter(e => e.eventCategory === filter);
+  }
+  
   container.innerHTML = eventsToRender.map(e => renderEventCard(e)).join('');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const filterSlider = document.querySelector('.filter-slider');
+
+  function updateSlider(activeTab) {
+    if (!filterSlider || !activeTab) return;
+    const tabRect = activeTab.getBoundingClientRect();
+    filterSlider.style.width = `${tabRect.width}px`;
+    filterSlider.style.left = `${activeTab.offsetLeft}px`;
+  }
+
+  if (filterTabs.length > 0) {
+    const initialActive = document.querySelector('.filter-tab.active');
+    setTimeout(() => updateSlider(initialActive), 100);
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        updateSlider(e.target);
+
+        const filterValue = e.target.getAttribute('data-filter');
+        renderEvents('all-events-container', false, filterValue);
+        
+        // Make new cards visible immediately
+        setTimeout(() => {
+          document.querySelectorAll('#all-events-container .reveal').forEach(el => {
+            el.classList.add('is-visible');
+          });
+        }, 50);
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      const activeTab = document.querySelector('.filter-tab.active');
+      if (activeTab) updateSlider(activeTab);
+    });
+  }
+});
 
 function openEventModal(eventId) {
   const event = EVENTS.find(e => e.id === eventId);
