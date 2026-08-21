@@ -86,7 +86,7 @@ const EVENTS = [
 function renderEventCard(event) {
   const verticalTitleSpans = event.shortCode.split('').map(char => `<span>${char}</span>`).join('');
   return `
-    <article class="game-card reveal" style="--theme: ${event.accentColor}; --theme-light: ${event.accentColor}; --theme-dark: ${event.accentColor};">
+    <article class="game-card reveal" data-aos="flip-up" style="--theme: ${event.accentColor}; --theme-light: ${event.accentColor}; --theme-dark: ${event.accentColor};">
         <div class="card-background"></div>
         <div class="event-category">${event.eventCategory}</div>
         

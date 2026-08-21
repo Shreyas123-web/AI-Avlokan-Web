@@ -114,7 +114,7 @@ const TEAM = [
 
 function renderTeamCard(member) {
   return `
-    <div class="team-card reveal">
+    <div class="team-card reveal" data-aos="fade-up">
         <!-- Decorative background -->
         <div class="red-panel"></div>
 
