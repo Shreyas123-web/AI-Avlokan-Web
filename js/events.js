@@ -157,7 +157,7 @@ const EVENTS = [
     id: "evt-08",
     name: "Vision Hunter",
     shortCode: "V-HUNT",
-    accentColor: "#0EA5E9", // Violet
+    accentColor: "#0EA5E9",
     tagline: "See What Others Miss.",
     poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407855/4a6afd1d-f909-4782-bf8d-949025dd5725.png",
     description: "Sharpen your eyes and your AI instincts. Hunt down hidden patterns, decode visual clues, and uncover what lies beyond the obvious.",

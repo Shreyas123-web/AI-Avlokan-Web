@@ -144,9 +144,28 @@ function initCountdown() {
       messageContainer.style.display = 'block';
       
       if (now <= endOfDay) {
-        messageContainer.innerHTML = '<div class="live-badge">🔴 LIVE — Event is happening now!</div><div class="event-date">25 September 2026</div>';
+        messageContainer.innerHTML = `
+          <div class="status-card live">
+            <div class="status-indicator">
+              <span class="pulse-dot"></span>
+              <span class="status-text">HAPPENING NOW</span>
+            </div>
+            <h2 class="status-title">AI Avlokan is Live!</h2>
+            <p class="status-date">Join the action today, 25 September 2026</p>
+          </div>
+        `;
       } else {
-        messageContainer.innerHTML = '<div class="concluded-badge">Event Concluded — See you next year!</div><div class="event-date">25 September 2026</div>';
+        messageContainer.innerHTML = `
+          <div class="status-card concluded">
+            <div class="status-indicator">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span class="status-text">EVENT CONCLUDED</span>
+            </div>
+            <h2 class="status-title">Thank You For Joining!</h2>
+            <p class="status-date">25 September 2026 &bull; JNNCE Shivamogga</p>
+            <p class="status-subtitle mt-2">See you next year for an even bigger adventure.</p>
+          </div>
+        `;
       }
       return;
     }
