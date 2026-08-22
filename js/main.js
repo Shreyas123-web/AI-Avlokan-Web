@@ -250,7 +250,7 @@ function initContactForm() {
     
     if (!name || !email || !query) return;
 
-    const TARGET_EMAIL = "aiavlokan2k26@gmail.com";
+    const TARGET_EMAIL = "swaroop579p@gmail.com";
     const subject = encodeURIComponent(`AI AVLOKAN 2k26 — Query from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nQuery:\n${query}`);
     

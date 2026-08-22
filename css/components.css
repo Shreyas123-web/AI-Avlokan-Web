@@ -182,6 +182,10 @@
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
+.mobile-nav-cta {
+  display: none;
+}
+
 /* =========================
    MOBILE MENU TOGGLE (Burger)
 ========================== */
@@ -249,7 +253,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: var(--accent-primary);
+  background: var(--accent-secondary);
   transition: width 0.5s ease, height 0.5s ease;
   z-index: 0;
 }
@@ -277,7 +281,7 @@
 }
 
 .menu-toggle.burger.active .lines span {
-  background: var(--bg-primary);
+  background: var(--live-red);
   box-shadow: none;
 }
 
@@ -1118,7 +1122,7 @@
 }
 
 .game-card:hover .card-image {
-  height:90%;
+  height: 90%;
 }
 
 .game-card:hover .card-image img {
@@ -1893,6 +1897,13 @@ button.success {
 
   .nav-cta {
     display: none;
+  }
+
+  .mobile-nav-cta {
+    display: inline-flex !important;
+    margin-top: 24px;
+    font-size: 1.1rem !important;
+    padding: 12px 32px;
   }
 
   .burger-wrap {
