@@ -125,12 +125,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-width: 0;
+  width: 100%;
 }
 
 .navbar__logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
+  max-width: 100%;
   text-decoration: none;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -143,6 +147,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .logo-mark-img {
@@ -178,8 +186,10 @@
 ========================== */
 .burger-wrap {
   position: relative;
-  display: none; /* hidden on desktop */
+  display: none;
+  /* hidden on desktop */
 }
+
 .burger-wrap::after {
   content: '';
   position: absolute;
@@ -190,12 +200,19 @@
   pointer-events: none;
   transition: border-color 0.35s ease;
 }
+
 .burger-wrap.active::after {
   border-color: rgba(236, 72, 153, 0.45);
 }
+
 @keyframes spinRadar {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .menu-toggle.burger {
@@ -217,10 +234,12 @@
   transition: border-color 0.35s ease, box-shadow 0.35s ease;
   z-index: 101;
 }
+
 .menu-toggle.burger.active {
   border-color: var(--accent-secondary);
   box-shadow: 0 0 22px rgba(236, 72, 153, 0.35);
 }
+
 .menu-toggle.burger::before {
   content: "";
   position: absolute;
@@ -233,16 +252,19 @@
   transition: width 0.5s ease, height 0.5s ease;
   z-index: 0;
 }
+
 .menu-toggle.burger.active::before {
   width: 140%;
   height: 140%;
 }
+
 .menu-toggle.burger .lines {
   width: 20px;
   height: 14px;
   position: relative;
   z-index: 1;
 }
+
 .menu-toggle.burger .lines span {
   position: absolute;
   left: 0;
@@ -252,22 +274,34 @@
   background: var(--text-primary);
   transition: transform 0.4s ease, top 0.3s ease, background 0.4s ease, box-shadow 0.4s ease;
 }
+
 .menu-toggle.burger.active .lines span {
   background: var(--bg-primary);
   box-shadow: none;
 }
-.menu-toggle.burger .lines span:nth-child(1) { top: 0; }
-.menu-toggle.burger .lines span:nth-child(2) { top: 6px; }
-.menu-toggle.burger .lines span:nth-child(3) { top: 12px; }
+
+.menu-toggle.burger .lines span:nth-child(1) {
+  top: 0;
+}
+
+.menu-toggle.burger .lines span:nth-child(2) {
+  top: 6px;
+}
+
+.menu-toggle.burger .lines span:nth-child(3) {
+  top: 12px;
+}
 
 .menu-toggle.burger.active .lines span:nth-child(1) {
   top: 6px;
   transform: rotate(45deg);
 }
+
 .menu-toggle.burger.active .lines span:nth-child(2) {
   transform: translateX(30px);
   opacity: 0;
 }
+
 .menu-toggle.burger.active .lines span:nth-child(3) {
   top: 6px;
   transform: rotate(-45deg);
@@ -297,15 +331,18 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(34, 211, 238, 0.4);
 }
+
 .back-to-top.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
+
 .back-to-top:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(34, 211, 238, 0.6);
 }
+
 .back-to-top svg {
   width: 24px;
   height: 24px;
@@ -1244,9 +1281,12 @@
       100% 42%,
       93% 49%,
       93% 86%,
-      70% 100%,   /* 1. Reduced from 82% to shorten the right side */
-    30% 100%,   /* 2. Shifted right from 22% to 35% */
-    40% 93%,    /* 3. Matched the step-up point to 35% so it aligns cleanly */
+      70% 100%,
+      /* 1. Reduced from 82% to shorten the right side */
+      30% 100%,
+      /* 2. Shifted right from 22% to 35% */
+      40% 93%,
+      /* 3. Matched the step-up point to 35% so it aligns cleanly */
       10% 93%,
       0% 82%,
       0% 16%);
@@ -1806,19 +1846,27 @@ button.success {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
-    height: 100vh;
+    max-width: 100%;
+    height: 100dvh;
+
     background: rgba(12, 13, 19, 0.98);
+
     flex-direction: column;
     justify-content: center;
-    transform: translateX(100%);
-    transition: 0.4s ease;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.4s ease;
+
+    will-change: transform;
   }
 
   .nav-links.active {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   .nav-links a {
@@ -1831,10 +1879,21 @@ button.success {
 
   .burger-wrap {
     display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  .navbar__logo {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .logo-mark-img {
+    flex: 0 0 50px;
   }
 
   .navbar.scrolled {
-    padding: 24px 0; /* Keep consistent padding on mobile to prevent jump */
+    padding: 24px 0;
+    /* Keep consistent padding on mobile to prevent jump */
   }
 
   .hero__meta {
@@ -1897,9 +1956,9 @@ button.success {
 .filter-slider {
   position: absolute;
   top: 4px;
-  left: 4px; 
+  left: 4px;
   height: calc(100% - 8px);
-  width: 0; 
+  width: 0;
   background: var(--accent-gradient);
   border-radius: 30px;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -1936,10 +1995,12 @@ button.success {
   .team-card .member-name {
     font-size: 16px;
   }
+
   .team-card .member-role {
     font-size: 12px;
   }
 }
+
 /* =========================
    MAP WIDGET
 ========================== */
@@ -1996,4 +2057,69 @@ button.success {
   text-transform: uppercase;
   color: var(--accent-secondary);
   opacity: 0.7;
+}
+
+
+@media (max-width: 768px) {
+
+  .navbar,
+  .hero,
+  section,
+  footer {
+    max-width: 100%;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .about-grid,
+  .cyber-countdown,
+  .cyber-stats-grid,
+  .team-grid,
+  .all-events-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .about-content,
+  .about-image {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .reverse-mobile .about-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reverse-mobile .about-image {
+    order: 1;
+  }
+
+  .reverse-mobile .about-content {
+    order: 2;
+  }
+
+  /* Prevent the initial hidden/translated animation state */
+  .reverse-mobile .about-image.reveal-right,
+  .reverse-mobile .about-content.reveal-left {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
 }

@@ -59,7 +59,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  /* For sticky header */
+  overflow-x: clip;
 }
 
 body {
@@ -67,7 +67,8 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 /* Typography */
@@ -218,4 +219,16 @@ img {
 :focus-visible {
   outline: 2px solid var(--accent-primary);
   outline-offset: 4px;
+}
+
+.logo-text-img {
+  width: 240px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logo-text-img {
+    width: 185px;
+  }
 }
