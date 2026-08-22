@@ -789,8 +789,10 @@
 }
 
 .about-image img {
+  width: 450px;
+  height: 450px;
   border-radius: var(--radius-lg);
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
 
@@ -884,7 +886,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 70%;
+  height: 100%;
   overflow: hidden;
   z-index: 1;
 }
@@ -906,8 +908,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 35%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .6) 60%, #000 100%);
+  height: 20%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, 0.95) 100%);
 }
 
 .event-category {
@@ -990,6 +992,8 @@
 
 .event-title {
   color: #fff;
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
   font-family: "Arial Narrow", Arial, sans-serif;
   font-size: clamp(1.5rem, 5vw, 31px);
   font-weight: 400;
@@ -1006,6 +1010,8 @@
 .description {
   max-width: 315px;
   color: #e9e9e9;
+  -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
   font-size: clamp(0.85rem, 3vw, 15px);
   line-height: 1.4;
   font-weight: 500;
@@ -1019,6 +1025,8 @@
 
 .prize-title {
   color: #fff;
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1087,8 +1095,10 @@
   bottom: 20px;
   z-index: 20;
   color: #fff;
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
   text-align: center;
-  font-size: clamp(1.2rem, 5vw, 30px);
+  font-size: clamp(1rem, 4.5vw, 22px);
   letter-spacing: 1px;
   transition: opacity .35s ease, transform .4s ease;
 }
@@ -1108,7 +1118,7 @@
 }
 
 .game-card:hover .card-image {
-  height: 75%;
+  height:90%;
 }
 
 .game-card:hover .card-image img {
