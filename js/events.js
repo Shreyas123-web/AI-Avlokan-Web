@@ -13,7 +13,7 @@ const EVENTS = [
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: true,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/AI_AD.jpeg",
     organizers: [
       { name: "Rohan Sharma", phone: "+91 90000 00001" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
@@ -35,7 +35,7 @@ const EVENTS = [
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/AI_ML_Quiz.jpeg",
     organizers: [
       { name: "Kavya Nair", phone: "+91 90000 00003" },
       { name: "Aditya Verma", phone: "+91 90000 00004" }
@@ -57,7 +57,7 @@ const EVENTS = [
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/AI_Visual.jpeg",
     organizers: [
       { name: "Rahul Singh", phone: "+91 90000 00005" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
@@ -79,7 +79,7 @@ const EVENTS = [
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/AI_Escape.jpeg",
     organizers: [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
@@ -101,7 +101,7 @@ const EVENTS = [
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/No_Code_ML.jpeg",
     organizers: [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Rohan Sharma", phone: "+91 90000 00001" }
@@ -123,7 +123,7 @@ const EVENTS = [
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/PromptX.jpeg",
     organizers: [
       { name: "Rohan Sharma", phone: "+91 90000 00001" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
@@ -145,7 +145,7 @@ const EVENTS = [
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/AI_Charades.jpeg",
     organizers: [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Rohan Sharma", phone: "+91 90000 00001" }
@@ -167,7 +167,7 @@ const EVENTS = [
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/images/AI_AVLOKAN.png",
+    image: "assets/events/details_image/Vision_Hunter.jpeg",
     organizers: [
       { name: "Aditya Verma", phone: "+91 90000 00004" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
