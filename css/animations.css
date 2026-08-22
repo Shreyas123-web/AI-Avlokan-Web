@@ -219,7 +219,7 @@
   --yellow: #ffe45b;
   --blue: #07134e;
   --black: #000;
-  --intro-ms: 1600ms;
+  --intro-ms: 1700ms;
 }
 
 #vr-entry {
@@ -868,23 +868,3 @@
     transform: scale(.53)
   }
 }
-
-
-/* =========================================================
-   MOBILE SCROLL REVEAL
-   Keep the animations, but avoid horizontal movement
-   on narrow screens.
-   ========================================================= */
-
-/* @media (max-width: 768px) {
-
-  .reveal-left,
-  .reveal-right {
-    transform: translateY(40px);
-  }
-
-  .reveal-left.is-visible,
-  .reveal-right.is-visible {
-    transform: translateY(0);
-  }
-} */

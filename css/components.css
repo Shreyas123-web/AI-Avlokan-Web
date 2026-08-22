@@ -145,6 +145,7 @@
 .logo-text {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
   min-width: 0;
@@ -575,6 +576,7 @@
   display: inline-block;
   background: linear-gradient(180deg, #fcd34d 0%, #d97706 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 15px rgba(252, 211, 77, 0.4);
 }
@@ -653,6 +655,7 @@
   margin-bottom: 8px;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -1009,6 +1012,7 @@
   margin-bottom: 10px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1838,6 +1842,10 @@ button.success {
     order: -1;
   }
 
+  .reverse-mobile .about-content {
+    transition-delay: 0.3s;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -2096,30 +2104,5 @@ button.success {
   p {
     max-width: 100%;
     overflow-wrap: break-word;
-  }
-}
-
-
-@media (max-width: 768px) {
-
-  .reverse-mobile .about-grid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .reverse-mobile .about-image {
-    order: 1;
-  }
-
-  .reverse-mobile .about-content {
-    order: 2;
-  }
-
-  /* Prevent the initial hidden/translated animation state */
-  .reverse-mobile .about-image.reveal-right,
-  .reverse-mobile .about-content.reveal-left {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
   }
 }
