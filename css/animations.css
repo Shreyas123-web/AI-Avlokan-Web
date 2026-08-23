@@ -279,9 +279,30 @@
     translate(-50%, -50%) perspective(1200px) rotateX(0deg) scale(.43);
   transform-origin: center;
   animation: gogglesExpand var(--intro-ms) cubic-bezier(.12, .76, .12, 1) forwards;
+  animation-play-state: paused;
   will-change: transform;
   filter:
     drop-shadow(0 0 5px rgba(141, 67, 255, .45)) drop-shadow(0 0 22px rgba(0, 234, 255, .08));
+}
+
+#vr-entry {
+  contain: strict;
+}
+
+.goggles {
+  contain: layout paint;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#vr-entry.is-active .goggles {
+  animation-play-state: running;
+}
+
+@media (max-width: 700px) {
+  .goggles {
+    will-change: transform;
+  }
 }
 
 @keyframes gogglesExpand {
@@ -339,6 +360,11 @@
     linear-gradient(135deg, #081b68, #03072c 52%, #08194b);
   box-shadow: inset 0 0 50px rgba(0, 0, 0, .75), inset 0 0 25px rgba(0, 234, 255, .12);
   animation: lensPunch var(--intro-ms) cubic-bezier(.12, .76, .12, 1) both;
+  animation-play-state: paused;
+}
+
+#vr-entry.is-active .lens {
+    animation-play-state: running;
 }
 
 @keyframes lensPunch {
@@ -467,9 +493,21 @@
 .progress-fill {
   width: 0%;
   height: 100%;
-  background: repeating-linear-gradient(135deg, #ffb14b 0 8px, #ffe45b 8px 16px);
-  box-shadow: 0 0 10px #ffe45b, 0 0 22px rgba(255, 228, 91, .6);
+  background: repeating-linear-gradient(
+    135deg,
+    #ffb14b 0 8px,
+    #ffe45b 8px 16px
+  );
+  box-shadow:
+    0 0 10px #ffe45b,
+    0 0 22px rgba(255, 228, 91, .6);
+
   animation: loadProgress 1080ms linear 40ms forwards;
+  animation-play-state: paused;
+}
+
+#vr-entry.is-active .progress-fill {
+  animation-play-state: running;
 }
 
 @keyframes loadProgress {
@@ -718,7 +756,13 @@
   background: #000;
   opacity: 0;
   pointer-events: none;
-  animation: blackout 300ms ease-in 1030ms forwards;
+
+  animation: blackout 300ms ease-in 1400ms forwards;
+  animation-play-state: paused;
+}
+
+#vr-entry.is-active::after {
+  animation-play-state: running;
 }
 
 @keyframes blackout {

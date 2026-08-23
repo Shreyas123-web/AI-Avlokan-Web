@@ -719,55 +719,68 @@
   </script>
 
   <script>
-    (function () {
-      const entry = document.getElementById("vr-entry");
-      const percent = document.getElementById("percent-value");
-      if (!entry) return;
+(function () {
+  const entry = document.getElementById("vr-entry");
+  const percent = document.getElementById("percent-value");
 
-      const TOTAL = 1700;
-      const LOAD_START = 50;
-      const LOAD_DURATION = 1400;
+  if (!entry) return;
 
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
+  const TOTAL = 1700;
+  const LOAD_START = 50;
+  const LOAD_DURATION = 1400;
 
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          entry.classList.add("is-active");
-        });
-      });
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 
-      const start = performance.now();
+  function startIntro() {
+    // Start the CSS animations only after the browser
+    // has had a chance to paint the initial overlay.
+    entry.classList.add("is-active");
 
-      function updateLoader(now) {
-        const elapsed = now - start;
-        const progress = Math.min(
-          100,
-          Math.max(0, ((elapsed - LOAD_START) / LOAD_DURATION) * 100)
-        );
+    const start = performance.now();
 
-        percent.textContent = Math.floor(progress) + " %";
+    function updateLoader(now) {
+      const elapsed = now - start;
 
-        if (progress < 100) {
-          requestAnimationFrame(updateLoader);
-        } else {
-          percent.textContent = "100 %";
-        }
+      const progress = Math.min(
+        100,
+        Math.max(
+          0,
+          ((elapsed - LOAD_START) / LOAD_DURATION) * 100
+        )
+      );
+
+      percent.textContent = Math.floor(progress) + " %";
+
+      if (progress < 100) {
+        requestAnimationFrame(updateLoader);
+      } else {
+        percent.textContent = "100 %";
       }
+    }
 
-      requestAnimationFrame(updateLoader);
+    requestAnimationFrame(updateLoader);
 
-      window.setTimeout(() => {
-        entry.classList.add("is-done");
-      }, TOTAL);
+    // Keep JS timing synchronized with the CSS animation.
+    window.setTimeout(() => {
+      entry.classList.add("is-done");
+    }, TOTAL);
 
-      window.setTimeout(() => {
-        document.documentElement.style.overflow = "";
-        document.body.style.overflow = "";
-        entry.remove();
-      }, TOTAL + 280);
-    })();
-  </script>
+    window.setTimeout(() => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      entry.remove();
+    }, TOTAL + 300);
+  }
+
+  // Give mobile browsers one real paint before starting the animation.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(startIntro);
+    });
+  });
+})();
+</script>
   <script type="module" src="js/visitors.js"></script>
 </body>
 
