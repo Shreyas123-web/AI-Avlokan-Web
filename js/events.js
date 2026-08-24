@@ -15,10 +15,10 @@ const EVENTS = [
     featured: true,
     image: "assets/events/details_image/AI_AD.jpeg",
     organizers: [
-      { name: "Rohan Sharma", phone: "+91 90000 00001" },
-      { name: "Ananya Rao", phone: "+91 90000 00002" }
+      { name: "Rohan Sharma (Semister V)", phone: "+91 90000 00001" },
+      { name: "Ananya Rao (Semister VI)", phone: "+91 90000 00002" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -40,7 +40,7 @@ const EVENTS = [
       { name: "Kavya Nair", phone: "+91 90000 00003" },
       { name: "Aditya Verma", phone: "+91 90000 00004" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -62,7 +62,7 @@ const EVENTS = [
       { name: "Rahul Singh", phone: "+91 90000 00005" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -84,7 +84,7 @@ const EVENTS = [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -106,7 +106,7 @@ const EVENTS = [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Rohan Sharma", phone: "+91 90000 00001" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -128,7 +128,7 @@ const EVENTS = [
       { name: "Rohan Sharma", phone: "+91 90000 00001" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -150,7 +150,7 @@ const EVENTS = [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Rohan Sharma", phone: "+91 90000 00001" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
   {
@@ -172,7 +172,7 @@ const EVENTS = [
       { name: "Aditya Verma", phone: "+91 90000 00004" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    rulebookLink: "#",
+    ruleBook: "/AI_ESCAPE_QUEST.pdf",
     registerLink: "#"
   },
 ];
@@ -287,7 +287,18 @@ function openEventModal(eventId) {
     </div>
   `).join('');
 
-  document.getElementById('modal-rulebook').href = event.rulebookLink;
+  const rulebookBtn = document.getElementById('modal-rulebook');
+  if (event.ruleBook && event.ruleBook !== "#") {
+    rulebookBtn.href = "javascript:void(0);";
+    rulebookBtn.onclick = (e) => {
+      e.preventDefault();
+      if (window.openPDF) window.openPDF(event.ruleBook);
+    };
+    rulebookBtn.style.display = "inline-flex";
+  } else {
+    rulebookBtn.style.display = "none";
+  }
+  
   document.getElementById('modal-register').href = event.registerLink;
 
   const modal = document.getElementById('event-modal');
@@ -300,3 +311,4 @@ function closeEventModal() {
   modal.classList.remove('active');
   document.body.style.overflow = '';
 }
+
