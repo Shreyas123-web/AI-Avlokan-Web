@@ -1859,9 +1859,10 @@ button.success {
 ----------------------------------- */
 .modal-overlay {
   position: fixed;
-  inset: 0;
-  height: 100dvh;
-  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--modal-overlay-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1873,6 +1874,7 @@ button.success {
   visibility: hidden;
   transition: 0.3s;
   padding: 20px;
+  overscroll-behavior: none;
 }
 
 .modal-overlay.active {
@@ -1883,13 +1885,14 @@ button.success {
 .modal-content {
   width: 100%;
   max-width: 900px;
-  max-height: calc(100dvh - 160px);
+  max-height: calc(100% - 40px);
   overflow-y: auto;
   position: relative;
   display: flex;
   flex-direction: column;
   transform: scale(0.95);
   transition: 0.3s;
+  overscroll-behavior: contain;
 }
 
 .modal-overlay.active .modal-content {
@@ -1998,6 +2001,7 @@ button.success {
     width: 100%;
     max-width: 100%;
     height: 100dvh;
+    z-index: 99;
 
     background: var(--bg-primary);
 
@@ -2539,4 +2543,21 @@ button.success {
   padding: 0 12px !important;
   gap: 8px;
   font-size: 14px;
+}
+
+/* =========================================
+   Event Modal Mobile Organizers fix
+========================================= */
+.org-semester {
+  display: inline-block;
+  margin-left: 4px;
+}
+@media (max-width: 500px) {
+  .org-semester {
+    display: block;
+    margin-left: 0;
+    font-size: 0.85em;
+    color: var(--text-muted, #888);
+    margin-top: 2px;
+  }
 }

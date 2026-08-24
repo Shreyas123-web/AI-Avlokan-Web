@@ -280,12 +280,19 @@ function openEventModal(eventId) {
   document.getElementById('modal-prize').textContent = event.prize;
 
   const orgContainer = document.getElementById('modal-organizers');
-  orgContainer.innerHTML = event.organizers.map(org => `
+  orgContainer.innerHTML = event.organizers.map(org => {
+    let nameHtml = org.name;
+    if (org.name.includes('(')) {
+      const parts = org.name.split('(');
+      nameHtml = `${parts[0].trim()} <span class="org-semester">(${parts[1]}</span>`;
+    }
+    return `
     <div class="organizer">
-      <span>${org.name}</span>
-      <a href="tel:${org.phone}">${org.phone}</a>
+      <span class="org-name">${nameHtml}</span>
+      <a href="tel:${org.phone}" class="org-phone">${org.phone}</a>
     </div>
-  `).join('');
+    `;
+  }).join('');
 
   const rulebookBtn = document.getElementById('modal-rulebook');
   if (event.ruleBook && event.ruleBook !== "#") {
