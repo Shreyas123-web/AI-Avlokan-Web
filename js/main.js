@@ -124,7 +124,7 @@ function initScrollReveal() {
 
 /* --- Countdown Logic --- */
 function initCountdown() {
-  const eventDate = new Date('2026-09-25T09:00:00').getTime();
+  const eventDate = new Date('2026-09-29T08:00:00').getTime();
   const daysEl = document.getElementById('cd-days');
   const hoursEl = document.getElementById('cd-hours');
   const minsEl = document.getElementById('cd-mins');
@@ -139,7 +139,7 @@ function initCountdown() {
 
     if (distance < 0) {
       // Event has passed or is happening
-      const endOfDay = new Date('2026-09-25T23:59:59').getTime();
+      const endOfDay = new Date('2026-09-30T00:00:00').getTime();
       gridContainer.style.display = 'none';
       messageContainer.style.display = 'block';
       

@@ -220,11 +220,11 @@ function renderEvents(containerId, isFeaturedOnly = false, filter = 'all') {
   if (!container) return;
 
   let eventsToRender = isFeaturedOnly ? EVENTS.filter(e => e.featured) : EVENTS;
-  
+
   if (filter !== 'all') {
     eventsToRender = eventsToRender.filter(e => e.eventCategory === filter);
   }
-  
+
   container.innerHTML = eventsToRender.map(e => renderEventCard(e)).join('');
 }
 
@@ -247,12 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.addEventListener('click', (e) => {
         filterTabs.forEach(t => t.classList.remove('active'));
         e.target.classList.add('active');
-        
+
         updateSlider(e.target);
 
         const filterValue = e.target.getAttribute('data-filter');
         renderEvents('all-events-container', false, filterValue);
-        
+
         // Make new cards visible immediately
         setTimeout(() => {
           document.querySelectorAll('#all-events-container .reveal').forEach(el => {
@@ -298,7 +298,7 @@ function openEventModal(eventId) {
   } else {
     rulebookBtn.style.display = "none";
   }
-  
+
   document.getElementById('modal-register').href = event.registerLink;
 
   const modal = document.getElementById('event-modal');
