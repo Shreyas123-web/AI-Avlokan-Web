@@ -1860,6 +1860,8 @@ button.success {
 .modal-overlay {
   position: fixed;
   inset: 0;
+  height: 100dvh;
+  width: 100vw;
   background: var(--modal-overlay-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1870,7 +1872,7 @@ button.success {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  padding: 80px 20px;
+  padding: 20px;
 }
 
 .modal-overlay.active {
@@ -1881,7 +1883,7 @@ button.success {
 .modal-content {
   width: 100%;
   max-width: 900px;
-  max-height: 90vh;
+  max-height: calc(100dvh - 160px);
   overflow-y: auto;
   position: relative;
   display: flex;
