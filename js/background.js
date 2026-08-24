@@ -20,13 +20,22 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Colors based on theme
-  const colors = [
-    '#ffffff', // white
-    '#22d3ee', // cyan
-    '#0ea5e9', // deep cyan
-    '#facc15', // gold
-    '#8b5cf6'  // violet
-  ];
+  function getThemeColors() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    return isLight ? [
+      '#64748b', // darker slate instead of white
+      '#0284c7', // darker cyan
+      '#0369a1', // deeper cyan
+      '#ca8a04', // darker gold
+      '#6d28d9'  // darker violet
+    ] : [
+      '#ffffff', // white
+      '#22d3ee', // cyan
+      '#0ea5e9', // deep cyan
+      '#facc15', // gold
+      '#8b5cf6'  // violet
+    ];
+  }
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -44,10 +53,10 @@
       const y = height - Math.pow(Math.random(), 3) * height;
       
       const size = Math.random() > 0.98 ? Math.random() * 2.5 + 1.5 : Math.random() * 1.2 + 0.3;
-      const color = colors[Math.floor(Math.random() * colors.length)];
+      const colorIndex = Math.floor(Math.random() * 5);
       
       particles.push({
-        x, y, size, color,
+        x, y, size, colorIndex,
         baseAlpha: Math.random() * 0.5 + 0.1,
         twinkleSpeed: Math.random() * 0.02 + 0.005,
         twinklePhase: Math.random() * Math.PI * 2,
@@ -89,6 +98,7 @@
     
     // Draw particles
     const time = Date.now();
+    const currentColors = getThemeColors();
     particles.forEach(p => {
       let alpha = p.baseAlpha;
       
@@ -107,7 +117,7 @@
           alpha = p.baseAlpha + Math.sin(p.twinklePhase + time * p.twinkleSpeed) * 0.3;
           alpha = Math.max(0.1, Math.min(1, alpha));
           ctx.shadowBlur = 8;
-          ctx.shadowColor = p.color;
+          ctx.shadowColor = currentColors[p.colorIndex];
         } else {
           ctx.shadowBlur = 0;
         }
@@ -115,7 +125,7 @@
         ctx.shadowBlur = 0;
       }
 
-      ctx.fillStyle = p.color;
+      ctx.fillStyle = currentColors[p.colorIndex];
       ctx.globalAlpha = alpha;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);

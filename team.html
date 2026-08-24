@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="js/theme.js"></script>
 </head>
 
 <body>
@@ -31,20 +32,36 @@
 
       <div class="nav-links">
         <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
         <a href="events.html">Events</a>
         <a href="team.html" class="active">Team</a>
+        <a href="index.html#schedule">Schedule</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contact">Contact</a>
         <a href="#register" class="btn btn-primary mobile-nav-cta" style="color: white;">Register Now</a>
       </div>
 
-      <a href="#register" class="btn btn-primary nav-cta">Register Now</a>
-      <div class="burger-wrap">
-        <button class="menu-toggle burger" aria-label="Toggle menu" aria-expanded="false">
-          <div class="lines">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="neu-btn" aria-label="Toggle theme">
+          <!-- Sun SVG -->
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24">
+            <path d="M12,2A1,1,0,0,1,13,3V5A1,1,0,0,1,11,5V3A1,1,0,0,1,12,2Zm0,16a1,1,0,0,1,1,1v2a1,1,0,0,1-2,0V19A1,1,0,0,1,12,18ZM4.22,4.22A1,1,0,0,1,5.64,4.22L7.05,5.64a1,1,0,0,1-1.41,1.41L4.22,5.64A1,1,0,0,1,4.22,4.22ZM16.95,16.95a1,1,0,0,1,1.41,0l1.41,1.41a1,1,0,0,1-1.41,1.41l-1.41-1.41A1,1,0,0,1,16.95,16.95ZM2,12a1,1,0,0,1,1-1H5A1,1,0,0,1,5,13H3A1,1,0,0,1,2,12Zm16,0a1,1,0,0,1,1-1h2a1,1,0,0,1,0,2H19A1,1,0,0,1,18,12ZM4.22,19.78a1,1,0,0,1,0-1.41L5.64,16.95a1,1,0,0,1,1.41,1.41l-1.41,1.41A1,1,0,0,1,4.22,19.78ZM16.95,7.05a1,1,0,0,1,0-1.41l1.41-1.41a1,1,0,0,1,1.41,1.41L18.36,7.05A1,1,0,0,1,16.95,7.05ZM12,7A5,5,0,1,0,17,12,5,5,0,0,0,12,7Z"/>
+          </svg>
+          <!-- Moon SVG -->
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24">
+            <path d="M20.74,17.26A10,10,0,1,1,6.74,3.26a1,1,0,0,1,1,1.21,8,8,0,1,0,11.83,11.83A1,1,0,0,1,20.74,17.26Z"/>
+          </svg>
         </button>
+        <a href="#register" class="btn btn-primary nav-cta">Register Now</a>
+        <div class="burger-wrap">
+          <button class="menu-toggle burger" aria-label="Toggle menu" aria-expanded="false">
+            <div class="lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
