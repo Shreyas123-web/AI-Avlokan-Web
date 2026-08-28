@@ -460,7 +460,7 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">AI Avlokan 2k26 is a national-level technical festival that brings together
-              students from colleges and universities across the country to participate in technical competitions,
+              students from colleges and universities to participate in technical competitions,
               challenges, and other exciting events.</div>
           </div>
         </div>
@@ -707,6 +707,40 @@
     </div>
   </div>
 
+  <!-- PDF VIEWER OVERLAY -->
+  <div id="pdfViewer" class="pdf-overlay">
+    <div class="pdf-toolbar">
+      <div class="toolbar-left">
+        <button class="toolbar-btn" onclick="closePDF()" title="Close">✕</button>
+      </div>
+      <div class="toolbar-right">
+        <button class="toolbar-btn" onclick="zoomOut()" title="Zoom out">−</button>
+        <div id="zoomLevel" class="zoom-level">Fit</div>
+        <button class="toolbar-btn" onclick="zoomIn()" title="Zoom in">+</button>
+        <button class="toolbar-btn" onclick="fitToScreen()" title="Fit to screen">↔</button>
+        <a id="downloadBtn" class="toolbar-btn download-text-btn" title="Download PDF" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download</span>
+        </a>
+      </div>
+    </div>
+    <div id="pdfContent" class="pdf-content">
+      <div id="pdfLoading" class="pdf-loading">
+        <div class="spinner"></div>
+        <div>Loading PDF...</div>
+      </div>
+      <div id="pdfError" class="pdf-error">
+        <h3>Unable to load PDF</h3>
+        <p>Please try again or download the file.</p>
+      </div>
+      <div id="pdfPages"></div>
+    </div>
+  </div>
+
   <!-- Back to Top Button -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -716,6 +750,7 @@
   </button>
 
   <script src="js/background.js"></script>
+  <script type="module" src="js/pdf-viewer.js"></script>
   <script src="js/events.js"></script>
   <script src="js/team.js"></script>
   <script src="js/main.js"></script>
