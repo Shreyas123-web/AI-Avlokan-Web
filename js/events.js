@@ -5,9 +5,9 @@ const EVENTS = [
     shortCode: "AI-AD",
     accentColor: "#fafa28ff",
     tagline: "Prompt. Create. Dominate.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407740/64431c95-bea4-41ef-8d67-ad4c8cb2bd2c.png", // Placeholder code image
+    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407740/64431c95-bea4-41ef-8d67-ad4c8cb2bd2c.png",
     description: "Turn ideas into attention-grabbing advertisements using AI. Create smarter campaigns, unleash your creativity, and prove you can sell an idea in the age of AI.",
-    timings: "10:00 AM – 1:00 PM",
+    timings: "03:40 PM – 05:00 PM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Technical",
@@ -15,20 +15,20 @@ const EVENTS = [
     featured: true,
     image: "assets/events/details_image/AI_AD.jpeg",
     organizers: [
-      { name: "Rohan Sharma (Semister V)", phone: "+91 90000 00001" },
-      { name: "Ananya Rao (Semister VI)", phone: "+91 90000 00002" }
+      { name: "Rajeshwari H M (Semister VII)", phone: "+91 83174 89509" },
+      { name: "Vathsala S H (Semister VII)", phone: "+91 77609 17458" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-02",
-    name: "AI/ML Trend Quiz",
+    name: "AI Emerging Quiz",
     shortCode: "AI-QUIZ",
     accentColor: "#f91f1fff",
     tagline: "Know AI. Beat the Crowd.",
     poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407758/edc39e35-231d-4308-9c36-083abdb9e8b3.png",
     description: "How well do you know the world of AI and ML? Test your knowledge of trends, tools, breakthroughs, and the technologies shaping tomorrow.",
-    timings: "9:00 AM – 9:00 PM",
+    timings: "10:15 AM – 11:30 AM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Technical",
@@ -36,8 +36,8 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/AI_ML_Quiz.jpeg",
     organizers: [
-      { name: "Kavya Nair", phone: "+91 90000 00003" },
-      { name: "Aditya Verma", phone: "+91 90000 00004" }
+      { name: "Amrutha K S (Semister VII)", phone: "+91 95152 91570" },
+      { name: "Sinchana K (Semister VII)", phone: "+91 73492 42156" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
@@ -49,7 +49,7 @@ const EVENTS = [
     tagline: "Imagine It. Generate It. Own It.",
     poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407768/c497ec8a-f279-4482-b5ee-7539867e1254.png",
     description: "Put your visual creativity to the test by using AI to transform ideas into striking and innovative visuals.",
-    timings: "11:00 AM – 4:00 PM",
+    timings: "02:00 PM – 03:30 PM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Non-Technical",
@@ -57,8 +57,8 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/AI_Visual.jpeg",
     organizers: [
-      { name: "Rahul Singh", phone: "+91 90000 00005" },
-      { name: "Ananya Rao", phone: "+91 90000 00002" }
+      { name: "Shreya R Chittaragi (Semister VII)", phone: "+91 77953 65337" },
+      { name: "Kaveri (Semister VII)", phone: "+91 72597 41544" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
@@ -70,7 +70,7 @@ const EVENTS = [
     tagline: "Think Smart. Escape Faster.",
     poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407774/410abeaf-8baf-4072-b487-f70de2df4204.png",
     description: "Enter a world of AI-powered puzzles, hidden clues, and mind-bending challenges. Think fast, work smart, and escape before time runs out.",
-    timings: "2:00 PM – 4:00 PM",
+    timings: "10:15 AM – 11:30 AM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Technical",
@@ -78,20 +78,20 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/AI_Escape.jpeg",
     organizers: [
-      { name: "Neha Gupta", phone: "+91 90000 00006" },
-      { name: "Ananya Rao", phone: "+91 90000 00002" }
+      { name: "Swaroop P (Semister V)", phone: "+91 86185 07413" },
+      { name: "Sathvik U S (Semister V)", phone: "+91 63624 94258" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-05",
-    name: "No-Code ML Model",
+    name: "ML Forge",
     shortCode: "NO-CODE",
     accentColor: "#e45b06ff ",
     tagline: "Build Intelligence. Skip the Code.",
     poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407818/4a3542fb-bebb-4fb6-8e4d-1304526df5ca.png",
     description: "Think you need to be a programmer to build AI? Think again. Create, train, and explore a machine learning model using powerful no-code tools.",
-    timings: "2:00 PM – 4:00 PM",
+    timings: "11:35 AM – 12:50 PM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Technical",
@@ -99,8 +99,8 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/No_Code_ML.jpeg",
     organizers: [
-      { name: "Neha Gupta", phone: "+91 90000 00006" },
-      { name: "Rohan Sharma", phone: "+91 90000 00001" }
+      { name: "Devika N D (Semister VII)", phone: "+91 80502 83353" },
+      { name: "Nithin G J (Semister VII)", phone: "+91 84315 99031" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
@@ -120,8 +120,8 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/PromptX.jpeg",
     organizers: [
-      { name: "Rohan Sharma", phone: "+91 90000 00001" },
-      { name: "Ananya Rao", phone: "+91 90000 00002" }
+      { name: "Vinay Raj V (Semister VII)", phone: "+91 89714 35054" },
+      { name: "Suchet H S (Semister VII)", phone: "+91 82968 91958" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
@@ -133,7 +133,7 @@ const EVENTS = [
     tagline: "Act Smart. Guess Smarter.",
     poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407822/2baff31a-d312-4e9e-bbc6-72c35a4eb97f.png",
     description: "AI meets charades! Decode concepts, act out clues, and race against the clock in a hilarious battle of creativity, teamwork, and AI knowledge.",
-    timings: "2:00 PM – 4:00 PM",
+    timings: "03:40 PM – 05:00 PM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Non-Technical",
@@ -141,8 +141,8 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/AI_Charades.jpeg",
     organizers: [
-      { name: "Neha Gupta", phone: "+91 90000 00006" },
-      { name: "Rohan Sharma", phone: "+91 90000 00001" }
+      { name: "Anagha C (Semister VII)", phone: "+91 70224 43442" },
+      { name: "Jeevan H G (Semister VII)", phone: "+91 97316 41555" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
@@ -162,8 +162,8 @@ const EVENTS = [
     featured: false,
     image: "assets/events/details_image/Vision_Hunter.jpeg",
     organizers: [
-      { name: "Aditya Verma", phone: "+91 90000 00004" },
-      { name: "Ananya Rao", phone: "+91 90000 00002" }
+      { name: "Prajna n kulal (Semister VII)", phone: "+91 80953 74237" },
+      { name: "Yashaswini S Gowda (Semister VII)", phone: "+91 95357 97006" }
     ],
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
