@@ -9,7 +9,7 @@ const EVENTS = [
     description: "Turn ideas into attention-grabbing advertisements using AI. Create smarter campaigns, unleash your creativity, and prove you can sell an idea in the age of AI.",
     timings: "10:00 AM – 1:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: true,
@@ -18,8 +18,7 @@ const EVENTS = [
       { name: "Rohan Sharma (Semister V)", phone: "+91 90000 00001" },
       { name: "Ananya Rao (Semister VI)", phone: "+91 90000 00002" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-02",
@@ -31,7 +30,7 @@ const EVENTS = [
     description: "How well do you know the world of AI and ML? Test your knowledge of trends, tools, breakthroughs, and the technologies shaping tomorrow.",
     timings: "9:00 AM – 9:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -40,8 +39,7 @@ const EVENTS = [
       { name: "Kavya Nair", phone: "+91 90000 00003" },
       { name: "Aditya Verma", phone: "+91 90000 00004" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-03",
@@ -53,7 +51,7 @@ const EVENTS = [
     description: "Put your visual creativity to the test by using AI to transform ideas into striking and innovative visuals.",
     timings: "11:00 AM – 4:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -62,8 +60,7 @@ const EVENTS = [
       { name: "Rahul Singh", phone: "+91 90000 00005" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-04",
@@ -75,7 +72,7 @@ const EVENTS = [
     description: "Enter a world of AI-powered puzzles, hidden clues, and mind-bending challenges. Think fast, work smart, and escape before time runs out.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -84,8 +81,7 @@ const EVENTS = [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-05",
@@ -97,7 +93,7 @@ const EVENTS = [
     description: "Think you need to be a programmer to build AI? Think again. Create, train, and explore a machine learning model using powerful no-code tools.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -106,8 +102,7 @@ const EVENTS = [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Rohan Sharma", phone: "+91 90000 00001" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-06",
@@ -119,7 +114,7 @@ const EVENTS = [
     description: "Your prompts are your weapons. Think creatively, engineer precisely, and adapt quickly as you battle through a high-speed test of prompt engineering.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -128,8 +123,7 @@ const EVENTS = [
       { name: "Rohan Sharma", phone: "+91 90000 00001" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-07",
@@ -141,7 +135,7 @@ const EVENTS = [
     description: "AI meets charades! Decode concepts, act out clues, and race against the clock in a hilarious battle of creativity, teamwork, and AI knowledge.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -150,8 +144,7 @@ const EVENTS = [
       { name: "Neha Gupta", phone: "+91 90000 00006" },
       { name: "Rohan Sharma", phone: "+91 90000 00001" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
     id: "evt-08",
@@ -163,7 +156,7 @@ const EVENTS = [
     description: "Sharpen your eyes and your AI instincts. Hunt down hidden patterns, decode visual clues, and uncover what lies beyond the obvious.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
-    date: "25 Sept 2026",
+    date: "29 Sept 2026",
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
@@ -172,8 +165,7 @@ const EVENTS = [
       { name: "Aditya Verma", phone: "+91 90000 00004" },
       { name: "Ananya Rao", phone: "+91 90000 00002" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf",
-    registerLink: "#"
+    ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
 ];
 
@@ -296,17 +288,12 @@ function openEventModal(eventId) {
 
   const rulebookBtn = document.getElementById('modal-rulebook');
   if (event.ruleBook && event.ruleBook !== "#") {
-    rulebookBtn.href = "javascript:void(0);";
-    rulebookBtn.onclick = (e) => {
-      e.preventDefault();
-      if (window.openPDF) window.openPDF(event.ruleBook);
-    };
+    rulebookBtn.href = event.ruleBook;
+    rulebookBtn.onclick = null;
     rulebookBtn.style.display = "inline-flex";
   } else {
     rulebookBtn.style.display = "none";
   }
-
-  document.getElementById('modal-register').href = event.registerLink;
 
   const modal = document.getElementById('event-modal');
   modal.classList.add('active');
