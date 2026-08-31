@@ -207,59 +207,14 @@ function renderEventCard(event) {
   `;
 }
 
-function renderEvents(containerId, isFeaturedOnly = false, filter = 'all') {
+function renderEvents(containerId, isFeaturedOnly = false) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
   let eventsToRender = isFeaturedOnly ? EVENTS.filter(e => e.featured) : EVENTS;
 
-  if (filter !== 'all') {
-    eventsToRender = eventsToRender.filter(e => e.eventCategory === filter);
-  }
-
   container.innerHTML = eventsToRender.map(e => renderEventCard(e)).join('');
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const filterSlider = document.querySelector('.filter-slider');
-
-  function updateSlider(activeTab) {
-    if (!filterSlider || !activeTab) return;
-    const tabRect = activeTab.getBoundingClientRect();
-    filterSlider.style.width = `${tabRect.width}px`;
-    filterSlider.style.left = `${activeTab.offsetLeft}px`;
-  }
-
-  if (filterTabs.length > 0) {
-    const initialActive = document.querySelector('.filter-tab.active');
-    setTimeout(() => updateSlider(initialActive), 100);
-
-    filterTabs.forEach(tab => {
-      tab.addEventListener('click', (e) => {
-        filterTabs.forEach(t => t.classList.remove('active'));
-        e.target.classList.add('active');
-
-        updateSlider(e.target);
-
-        const filterValue = e.target.getAttribute('data-filter');
-        renderEvents('all-events-container', false, filterValue);
-
-        // Make new cards visible immediately
-        setTimeout(() => {
-          document.querySelectorAll('#all-events-container .reveal').forEach(el => {
-            el.classList.add('is-visible');
-          });
-        }, 50);
-      });
-    });
-
-    window.addEventListener('resize', () => {
-      const activeTab = document.querySelector('.filter-tab.active');
-      if (activeTab) updateSlider(activeTab);
-    });
-  }
-});
 
 function openEventModal(eventId) {
   const event = EVENTS.find(e => e.id === eventId);

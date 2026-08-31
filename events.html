@@ -38,7 +38,7 @@
         <a href="index.html#schedule">Schedule</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#contact">Contact</a>
-        <a href="#register" class="btn btn-primary mobile-nav-cta" style="color: white;">Register Now</a>
+        <a href="#register" class="btn btn-primary mobile-nav-cta registration-btn" style="color: white;">Register Now</a>
       </div>
 
       <div class="nav-actions">
@@ -52,7 +52,7 @@
             <path d="M20.74,17.26A10,10,0,1,1,6.74,3.26a1,1,0,0,1,1,1.21,8,8,0,1,0,11.83,11.83A1,1,0,0,1,20.74,17.26Z"/>
           </svg>
         </button>
-        <a href="#register" class="btn btn-primary nav-cta">Register Now</a>
+        <a href="#register" class="btn btn-primary nav-cta registration-btn">Register Now</a>
         <div class="burger-wrap">
           <button class="menu-toggle burger" aria-label="Toggle menu" aria-expanded="false">
             <div class="lines">
@@ -70,21 +70,14 @@
   <header class="page-header mt-5">
     <div class="container">
       <h1 class="gradient-text reveal" style="padding-top: 40px; font-size: clamp(2rem, 4vw, 3rem);">All Events</h1>
-      <p class="reveal reveal-delay-1 text-muted">Compete, learn, and conquer.</p>
+      <p class="reveal reveal-delay-1 text-muted" style="padding-bottom: 25px;">Compete, learn, and conquer.</p>
     </div>
   </header>
 
   <!-- Events Section -->
   <section class="events-page-content pt-2">
     <div class="container">
-      <div class="event-filter-container reveal mb-5">
-        <div class="event-filter-pill">
-          <div class="filter-slider"></div>
-          <button class="filter-tab active" data-filter="all">ALL</button>
-          <button class="filter-tab" data-filter="Technical">TECHNICAL</button>
-          <button class="filter-tab" data-filter="Non-Technical">NON-TECHNICAL</button>
-        </div>
-      </div>
+
       <div id="all-events-container" class="all-events-grid"></div>
     </div>
   </section>
@@ -229,6 +222,7 @@
   </div>
 
   <script type="module" src="js/pdf-viewer.js"></script>
+    <script src="js/config.js"></script>
 </body>
 
 </html>
