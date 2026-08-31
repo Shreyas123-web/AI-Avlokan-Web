@@ -355,68 +355,99 @@ img {
   }
 }
 
-/* Slots Section CSS */
+/* --- Slots Section Styling --- */
+
 .slots-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  border-radius: 16px;
-  padding: clamp(0.5rem, 2vw, 1rem);
-  background: var(--bg-alt, rgba(0, 0, 0, 0.1));
+  gap: 0; 
+  padding: 1.5rem 2rem; /* Adds breathing room inside the container */
+  border-radius: var(--radius-lg);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(12px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
 }
+
 .slot-row {
   display: grid;
   grid-template-columns: minmax(120px, 1fr) 2fr 2fr;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: stretch;
-  padding: 0.5rem;
-  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
-  border-radius: 16px;
-}
-.slot-name {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slot-event {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 85px;
-  padding: clamp(0.7rem, 1.5vw, 1rem);
-  text-align: center;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.1);
-  border: 1px solid var(--glass-border, rgba(255,255,255,0.1));
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.slot-event:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.15);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-subtle); 
 }
 
+/* Remove the line under the very last row */
+.slot-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0.5rem;
+}
+
+.slot-row:first-child {
+  padding-top: 0.5rem;
+}
+
+.slot-name {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-primary); 
+  color: var(--text-primary);
+}
+
+.slot-event {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75px; 
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  border-radius: var(--radius-md);
+  background: var(--cyber-bg); 
+  box-shadow: var(--shadow-soft); 
+  border: 1px solid var(--cyber-border);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.slot-event:hover {
+  transform: translateY(-4px);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--border-glow);
+}
+
+/* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
-  .slot-row {
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    gap: 0.75rem;
+  .slots-container {
     padding: 1rem;
   }
+  
+  .slot-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  
   .slot-name {
     grid-column: 1 / -1;
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--glass-border, rgba(255, 255, 255, 0.1));
-  }
-  .slot-event {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    min-height: 85px;
-    font-size: 1rem;
+    border-left: none; /* Remove left border on mobile */
+    border-top: 1.5px solid var(--accent-primary);
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .slot-event {
+    min-height: 70px;
+    font-size: 0.95rem;
     padding: 0.75rem;
   }
 }
