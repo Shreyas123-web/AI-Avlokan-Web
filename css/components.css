@@ -708,6 +708,17 @@
   justify-content: center;
 }
 
+@media (min-width: 501px) {
+  .cta-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .general-rules-btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
 @media (max-width: 500px) {
   .cta-buttons {
     flex-direction: column;

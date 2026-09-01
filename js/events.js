@@ -1,74 +1,32 @@
 const EVENTS = [
   {
     id: "evt-01",
-    name: "AI Advertisement Challenge",
-    shortCode: "AI-AD",
-    accentColor: "#fafa28ff",
-    tagline: "Prompt. Create. Dominate.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407740/64431c95-bea4-41ef-8d67-ad4c8cb2bd2c.png",
-    description: "Turn ideas into attention-grabbing advertisements using AI. Create smarter campaigns, unleash your creativity, and prove you can sell an idea in the age of AI.",
-    timings: "03:40 PM – 05:00 PM",
-    prize: "₹6,000",
-    date: "29 Sept 2026",
-    eventCategory: "Technical",
-    teamSize: "1-2 Members",
-    featured: true,
-    image: "assets/events/details_image/AI_AD.jpeg",
-    organizers: [
-      { name: "Rajeshwari H M (Semister VII)", phone: "+91 83174 89509" },
-      { name: "Vathsala S H (Semister VII)", phone: "+91 77609 17458" }
-    ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
-  },
-  {
-    id: "evt-02",
     name: "AI Emerging Quiz",
     shortCode: "AI-QUIZ",
-    accentColor: "#f91f1fff",
+    accentColor: "#cb3b53ff",
     tagline: "Know AI. Beat the Crowd.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407758/edc39e35-231d-4308-9c36-083abdb9e8b3.png",
+    poster: "assets/events/posters/AI_EMERGING_QUIZ.png",
     description: "How well do you know the world of AI and ML? Test your knowledge of trends, tools, breakthroughs, and the technologies shaping tomorrow.",
     timings: "10:15 AM – 11:30 AM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Technical",
     teamSize: "1-2 Members",
-    featured: false,
+    featured: true,
     image: "assets/events/details_image/AI_ML_Quiz.jpeg",
     organizers: [
       { name: "Amrutha K S (Semister VII)", phone: "+91 95152 91570" },
       { name: "Sinchana K (Semister VII)", phone: "+91 73492 42156" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
+    ruleBook: "assets/events/rulebook/AI_EMERGING_QUIZ.pdf"
   },
   {
-    id: "evt-03",
-    name: "AI Visual Challenge",
-    shortCode: "AI-VISION",
-    accentColor: "#2323fcff",
-    tagline: "Imagine It. Generate It. Own It.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407768/c497ec8a-f279-4482-b5ee-7539867e1254.png",
-    description: "Put your visual creativity to the test by using AI to transform ideas into striking and innovative visuals.",
-    timings: "02:00 PM – 03:30 PM",
-    prize: "₹6,000",
-    date: "29 Sept 2026",
-    eventCategory: "Non-Technical",
-    teamSize: "1-2 Members",
-    featured: false,
-    image: "assets/events/details_image/AI_Visual.jpeg",
-    organizers: [
-      { name: "Shreya R Chittaragi (Semister VII)", phone: "+91 77953 65337" },
-      { name: "Kaveri (Semister VII)", phone: "+91 72597 41544" }
-    ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
-  },
-  {
-    id: "evt-04",
+    id: "evt-02",
     name: "AI Escape Quest",
     shortCode: "AI-ESCAPE",
-    accentColor: "#27f727ff",
+    accentColor: "#808080",
     tagline: "Think Smart. Escape Faster.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407774/410abeaf-8baf-4072-b487-f70de2df4204.png",
+    poster: "assets/events/posters/AI_ESCAPE_QUEST.png",
     description: "Enter a world of AI-powered puzzles, hidden clues, and mind-bending challenges. Think fast, work smart, and escape before time runs out.",
     timings: "10:15 AM – 11:30 AM",
     prize: "₹6,000",
@@ -81,15 +39,15 @@ const EVENTS = [
       { name: "Swaroop P (Semister V)", phone: "+91 86185 07413" },
       { name: "Sathvik U S (Semister V)", phone: "+91 63624 94258" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
+    ruleBook: "assets/events/rulebook/AI_ESCAPE_QUEST.pdf"
   },
   {
-    id: "evt-05",
+    id: "evt-03",
     name: "ML Forge",
     shortCode: "NO-CODE",
-    accentColor: "#e45b06ff ",
+    accentColor: "#0EA5E9",
     tagline: "Build Intelligence. Skip the Code.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407818/4a3542fb-bebb-4fb6-8e4d-1304526df5ca.png",
+    poster: "assets/events/posters/ML_FORGE.png",
     description: "Think you need to be a programmer to build AI? Think again. Create, train, and explore a machine learning model using powerful no-code tools.",
     timings: "11:35 AM – 12:50 PM",
     prize: "₹6,000",
@@ -102,15 +60,15 @@ const EVENTS = [
       { name: "Devika N D (Semister VII)", phone: "+91 80502 83353" },
       { name: "Nithin G J (Semister VII)", phone: "+91 84315 99031" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
+    ruleBook: "assets/events/rulebook/ML_FORGE.pdf"
   },
   {
-    id: "evt-06",
-    name: "Prompt Panic",
+    id: "evt-04",
+    name: "Neural Clash",
     shortCode: "PROMPT-X",
-    accentColor: "#cb3b53ff",
+    accentColor: "#f91f1fff",
     tagline: "Prompt Under Pressure.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407837/4b450c24-b3c6-4d03-8af4-78f234ebf822.png",
+    poster: "assets/events/posters/AI_ESCAPE_QUEST.png",
     description: "Your prompts are your weapons. Think creatively, engineer precisely, and adapt quickly as you battle through a high-speed test of prompt engineering.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
@@ -126,33 +84,33 @@ const EVENTS = [
     ruleBook: "/AI_ESCAPE_QUEST.pdf"
   },
   {
-    id: "evt-07",
-    name: "AI Charades",
-    shortCode: "AI-ACT",
-    accentColor: "#808080",
-    tagline: "Act Smart. Guess Smarter.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407822/2baff31a-d312-4e9e-bbc6-72c35a4eb97f.png",
-    description: "AI meets charades! Decode concepts, act out clues, and race against the clock in a hilarious battle of creativity, teamwork, and AI knowledge.",
-    timings: "03:40 PM – 05:00 PM",
+    id: "evt-05",
+    name: "AI Visual Challenge",
+    shortCode: "AI-VISION",
+    accentColor: "#2323fcff",
+    tagline: "Imagine It. Generate It. Own It.",
+    poster: "assets/events/posters/VISUAL_CHALLENGE.png",
+    description: "Put your visual creativity to the test by using AI to transform ideas into striking and innovative visuals.",
+    timings: "02:00 PM – 03:30 PM",
     prize: "₹6,000",
     date: "29 Sept 2026",
     eventCategory: "Non-Technical",
     teamSize: "1-2 Members",
     featured: false,
-    image: "assets/events/details_image/AI_Charades.jpeg",
+    image: "assets/events/details_image/AI_Visual.jpeg",
     organizers: [
-      { name: "Anagha C (Semister VII)", phone: "+91 70224 43442" },
-      { name: "Jeevan H G (Semister VII)", phone: "+91 97316 41555" }
+      { name: "Shreya R Chittaragi (Semister VII)", phone: "+91 77953 65337" },
+      { name: "Kaveri (Semister VII)", phone: "+91 72597 41544" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
+    ruleBook: "assets/events/rulebook/VISUAL_CHALLENGE.pdf"
   },
   {
-    id: "evt-08",
-    name: "Vision Hunter",
+    id: "evt-06",
+    name: "Recall Reactor",
     shortCode: "V-HUNT",
-    accentColor: "#0EA5E9",
+    accentColor: "#e45b06ff",
     tagline: "See What Others Miss.",
-    poster: "https://res.cloudinary.com/dsojrrb9j/image/upload/v1787407855/4a6afd1d-f909-4782-bf8d-949025dd5725.png",
+    poster: "assets/events/posters/RECALL_REACTOR.jpeg",
     description: "Sharpen your eyes and your AI instincts. Hunt down hidden patterns, decode visual clues, and uncover what lies beyond the obvious.",
     timings: "2:00 PM – 4:00 PM",
     prize: "₹6,000",
@@ -165,7 +123,49 @@ const EVENTS = [
       { name: "Prajna n kulal (Semister VII)", phone: "+91 80953 74237" },
       { name: "Yashaswini S Gowda (Semister VII)", phone: "+91 95357 97006" }
     ],
-    ruleBook: "/AI_ESCAPE_QUEST.pdf"
+    ruleBook: "assets/events/rulebook/RECALL_REACTOR.pdf"
+  },
+  {
+    id: "evt-07",
+    name: "AI Advertisement Challenge",
+    shortCode: "AI-AD",
+    accentColor: "#fafa28ff",
+    tagline: "Prompt. Create. Dominate.",
+    poster: "assets/events/posters/AI_AD.PNG",
+    description: "Turn ideas into attention-grabbing advertisements using AI. Create smarter campaigns, unleash your creativity, and prove you can sell an idea in the age of AI.",
+    timings: "03:40 PM – 05:00 PM",
+    prize: "₹6,000",
+    date: "29 Sept 2026",
+    eventCategory: "Technical",
+    teamSize: "1-2 Members",
+    featured: false,
+    image: "assets/events/details_image/AI_AD.jpeg",
+    organizers: [
+      { name: "Rajeshwari H M (Semister VII)", phone: "+91 83174 89509" },
+      { name: "Vathsala S H (Semister VII)", phone: "+91 77609 17458" }
+    ],
+    ruleBook: "assets/events/rulebook/AI_AD.pdf"
+  },
+  {
+    id: "evt-08",
+    name: "AI Charades",
+    shortCode: "AI-ACT",
+    accentColor: "#27f727ff",
+    tagline: "Act Smart. Guess Smarter.",
+    poster: "assets/events/posters/AI_CHARADES.jpeg",
+    description: "AI meets charades! Decode concepts, act out clues, and race against the clock in a hilarious battle of creativity, teamwork, and AI knowledge.",
+    timings: "03:40 PM – 05:00 PM",
+    prize: "₹6,000",
+    date: "29 Sept 2026",
+    eventCategory: "Non-Technical",
+    teamSize: "1-2 Members",
+    featured: false,
+    image: "assets/events/details_image/AI_Charades.jpeg",
+    organizers: [
+      { name: "Anagha C (Semister VII)", phone: "+91 70224 43442" },
+      { name: "Jeevan H G (Semister VII)", phone: "+91 97316 41555" }
+    ],
+    ruleBook: "assets/events/rulebook/AI_CHARADES.pdf"
   },
 ];
 
@@ -243,8 +243,15 @@ function openEventModal(eventId) {
 
   const rulebookBtn = document.getElementById('modal-rulebook');
   if (event.ruleBook && event.ruleBook !== "#") {
-    rulebookBtn.href = event.ruleBook;
-    rulebookBtn.onclick = null;
+    rulebookBtn.href = "#";
+    rulebookBtn.onclick = (e) => {
+      e.preventDefault();
+      if (typeof window.openPDF === 'function') {
+        window.openPDF(event.ruleBook);
+      } else {
+        window.open(event.ruleBook, '_blank');
+      }
+    };
     rulebookBtn.style.display = "inline-flex";
   } else {
     rulebookBtn.style.display = "none";
