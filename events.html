@@ -15,10 +15,17 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/components.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Theme script in head prevents FOUC -->
   <script src="js/theme.js"></script>
 </head>
 
 <body>
+  <!-- UPGRADE: Premium Boot-up Loader -->
+  <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
+  </div>
+
   <!-- Scroll Progress -->
   <div id="scroll-progress"></div>
 
@@ -38,7 +45,8 @@
         <a href="index.html#schedule">Schedule</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#contact">Contact</a>
-        <a href="#register" class="btn btn-primary mobile-nav-cta registration-btn" style="color: white;">Register Now</a>
+        <!-- UPGRADE: Routed to index.html#register -->
+        <a href="index.html#register" class="btn btn-primary mobile-nav-cta registration-btn" style="color: white;">Register Now</a>
       </div>
 
       <div class="nav-actions">
@@ -52,7 +60,8 @@
             <path d="M20.74,17.26A10,10,0,1,1,6.74,3.26a1,1,0,0,1,1,1.21,8,8,0,1,0,11.83,11.83A1,1,0,0,1,20.74,17.26Z"/>
           </svg>
         </button>
-        <a href="#register" class="btn btn-primary nav-cta registration-btn">Register Now</a>
+        <!-- UPGRADE: Routed to index.html#register -->
+        <a href="index.html#register" class="btn btn-primary nav-cta registration-btn">Register Now</a>
         <div class="burger-wrap">
           <button class="menu-toggle burger" aria-label="Toggle menu" aria-expanded="false">
             <div class="lines">
@@ -77,7 +86,6 @@
   <!-- Events Section -->
   <section class="events-page-content pt-2">
     <div class="container">
-
       <div id="all-events-container" class="all-events-grid"></div>
     </div>
   </section>
@@ -92,33 +100,34 @@
         </a>
         <p class="mt-2 text-muted">The Flagship National-Level AI Immersion Fest, Presented by the AIML Department.</p>
         <div class="social-icons mt-3">
-          <a href="https://www.instagram.com/jnnce.aiml/" aria-label="Instagram"><svg width="20" height="20"
-              viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
+          <a href="https://www.instagram.com/jnnce.aiml/" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg></a>
-          <a href="https://www.linkedin.com/posts/jnnce-acm_jnnce-jnnceaiml-falconaiml-activity-7028016541375827968-Ko31"
-            aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A66C2"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/posts/jnnce-acm_jnnce-jnnceaiml-falconaiml-activity-7028016541375827968-Ko31" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A66C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
               <rect x="2" y="9" width="4" height="12"></rect>
               <circle cx="4" cy="4" r="2"></circle>
-            </svg></a>
-          <a href="https://x.com/i/jf/onboarding/web?redirect_after_login=%2Fhashtag%2Fjnnce%3Fsrc%3Dhashtag_click&mode=login"
-            aria-label="X (Twitter)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg></a>
+            </svg>
+          </a>
+          <a href="https://x.com/i/jf/onboarding/web?redirect_after_login=%2Fhashtag%2Fjnnce%3Fsrc%3Dhashtag_click&mode=login" aria-label="X (Twitter)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
         </div>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
-        <a href="#about">About</a>
+        <!-- UPGRADE: Fixed broken intra-page links to route to index.html properly -->
+        <a href="index.html#about">About</a>
         <a href="events.html">Events</a>
         <a href="team.html">Team</a>
-        <a href="#schedule">Schedule</a>
+        <a href="index.html#schedule">Schedule</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
@@ -127,24 +136,22 @@
       </div>
       <div class="footer-col">
         <h4>Organized By</h4>
-        <p><a href="https://jnnce.ac.in/jnndemo/depaiml.html">Dept. of AIML</a></p>
+        <p><a href="https://jnnce.ac.in/jnndemo/depaiml.html" target="_blank" rel="noopener noreferrer">Dept. of AIML</a></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 AI AVLOKAN &mdash; All Rights Reserved.</p>
       <p>Made with <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"
           style="vertical-align: text-bottom; color: #ff3366;">
-          <path
-            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg> by the <span><a href="https://jnnce.ac.in/jnndemo/depaiml.html"
-            style="color: #07c7e9; text-decoration: none;">Dept. of AIML</a></span></p>
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg> by the <span><a href="https://jnnce.ac.in/jnndemo/depaiml.html" target="_blank" rel="noopener noreferrer" style="color: #07c7e9; text-decoration: none;">Dept. of AIML</a></span></p>
     </div>
   </footer>
 
   <!-- Event Details Modal -->
   <div id="event-modal" class="modal-overlay">
     <div class="modal-content glass-panel">
-      <button class="modal-close" onclick="closeEventModal()">&times;</button>
+      <button class="modal-close" aria-label="Close modal" onclick="closeEventModal()">&times;</button>
       <div class="modal-body">
         <img id="modal-poster" src="" alt="Poster" class="modal-image">
         <div class="modal-info">
@@ -168,12 +175,12 @@
 
   <!-- Back to Top Button -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M18 15l-6-6-6 6" />
     </svg>
   </button>
 
+  <!-- Scripts -->
   <script src="js/background.js"></script>
   <script src="js/events.js"></script>
   <script src="js/main.js"></script>
@@ -193,6 +200,8 @@
       <div class="toolbar-left">
         <button class="toolbar-btn" onclick="closePDF()" title="Close">✕</button>
       </div>
+      <!-- UPGRADE: Dynamic PDF Title Display Container -->
+      <div class="pdf-title">Loading...</div>
       <div class="toolbar-right">
         <button class="toolbar-btn" onclick="zoomOut()" title="Zoom out">−</button>
         <div id="zoomLevel" class="zoom-level">Fit</div>
@@ -222,7 +231,7 @@
   </div>
 
   <script type="module" src="js/pdf-viewer.js"></script>
-    <script src="js/config.js"></script>
+  <script src="js/config.js"></script>
 </body>
 
 </html>
