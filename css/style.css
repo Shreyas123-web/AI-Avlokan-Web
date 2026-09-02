@@ -66,6 +66,10 @@
   /* Fonts */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
+
+  /* UPGRADED: Global Animation Physics */
+  --spring-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --spring-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Light Theme Variables */
@@ -74,7 +78,7 @@
   --bg-primary: #f0f2f5;
   --bg-secondary: #e4e6eb;
   --bg-elevated: #ffffff;
-  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.6); /* Adjusted for better light mode glass */
 
   /* Text */
   --text-primary: #0f172a;
@@ -87,7 +91,7 @@
 
   /* Shadows */
   --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.15);
+  --shadow-glow: 0 10px 40px rgba(124, 58, 237, 0.25);
 
   /* Cyber & Game Components */
   --cyber-bg: rgba(0, 0, 0, 0.04);
@@ -133,16 +137,18 @@ body {
   line-height: 1.6;
   overflow-x: clip;
   max-width: 100%;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* UPGRADED: Premium Text Selection */
+::selection {
+  background: rgba(124, 58, 237, 0.3);
+  color: inherit;
+  text-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
 }
 
 /* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
 }
@@ -202,10 +208,12 @@ section.bg-alt {
 /* Glassmorphism Utilities */
 .glass-panel {
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
+  /* UPGRADED: Inner edge lighting for depth */
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Image Shimmer Skeleton */
@@ -215,12 +223,17 @@ section.bg-alt {
   animation: shimmer 1.5s infinite linear;
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 img {
   max-width: 100%;
   display: block;
 }
 
-/* Base Buttons */
+/* UPGRADED: Premium Base Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -231,53 +244,73 @@ img {
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  /* Added spring physics */
+  transition: transform 0.4s var(--spring-bounce), box-shadow 0.4s ease, border-color 0.4s ease;
   will-change: transform;
 }
 
-.btn:hover {
-  transform: scale(1.03);
-}
-
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.95);
 }
 
 .btn-primary {
   background: var(--accent-gradient);
   color: #fff;
   border: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Light Sweep Hover Effect */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover::after {
+  left: 200%;
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-primary);
-  border: 1px solid var(--accent-primary);
+  border: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
-  background: rgba(124, 58, 237, 0.1);
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15), inset 0 0 15px rgba(124, 58, 237, 0.1);
 }
 
-/* Scrollbar */
+/* UPGRADED: Scrollbar (If not already in the other file) */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
+  background: rgba(124, 58, 237, 0.5);
   border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.9);
 }
 
 /* Accessibility */
@@ -298,7 +331,7 @@ img {
   }
 }
 
-/* Theme Toggle Button */
+/* UPGRADED: Theme Toggle Button (Better Neumorphism & Spring rotation) */
 .neu-btn {
   width: 44px;
   height: 44px;
@@ -311,22 +344,28 @@ img {
   align-items: center;
   box-shadow: 4px 4px 10px var(--neu-shadow-dark), 
              -4px -4px 10px var(--neu-shadow-light);
-  transition: all 0.4s ease;
+  transition: all 0.4s var(--spring-bounce);
   outline: none;
   position: relative;
   padding: 0;
 }
 
+.neu-btn:hover {
+  transform: scale(1.05);
+}
+
 .neu-btn:active, .neu-btn.active-state {
-  box-shadow: inset 4px 4px 6px var(--neu-shadow-dark), 
-              inset -4px -4px 6px var(--neu-shadow-light);
+  transform: scale(0.95);
+  box-shadow: inset 4px 4px 8px var(--neu-shadow-dark), 
+              inset -4px -4px 8px var(--neu-shadow-light);
 }
 
 .neu-btn .theme-icon {
   width: 22px;
   height: 22px;
   fill: var(--neu-icon);
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+  /* Added spring physics to the rotation */
+  transition: transform 0.6s var(--spring-bounce), opacity 0.4s ease;
   position: absolute;
 }
 
@@ -355,19 +394,19 @@ img {
   }
 }
 
-/* --- Slots Section Styling --- */
-
+/* --- UPGRADED: Slots Section Styling --- */
 .slots-container {
   display: flex;
   flex-direction: column;
   gap: 0; 
-  padding: 1.5rem 2rem; /* Adds breathing room inside the container */
+  padding: 1.5rem 2rem; 
   border-radius: var(--radius-lg);
   background: var(--bg-glass);
   border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px); /* Glassmorphism effect */
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* Added inner glow for glass depth */
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .slot-row {
@@ -379,7 +418,6 @@ img {
   border-bottom: 1px solid var(--border-subtle); 
 }
 
-/* Remove the line under the very last row */
 .slot-row:last-child {
   border-bottom: none;
   padding-bottom: 0.5rem;
@@ -398,6 +436,7 @@ img {
   padding-left: 1rem;
   border-left: 3px solid var(--accent-primary); 
   color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .slot-event {
@@ -411,17 +450,19 @@ img {
   font-size: clamp(1rem, 1.2vw, 1.1rem);
   border-radius: var(--radius-md);
   background: var(--cyber-bg); 
-  box-shadow: var(--shadow-soft); 
   border: 1px solid var(--cyber-border);
-  transition: all 0.3s ease;
   font-weight: 500;
+  /* Added spring physics and advanced box shadow transition */
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s var(--spring-bounce), background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .slot-event:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   background: var(--bg-elevated);
-  box-shadow: var(--shadow-glow);
-  border-color: var(--border-glow);
+  /* Premium glow effect */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(124, 58, 237, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* --- Mobile Responsiveness --- */
@@ -439,9 +480,10 @@ img {
   .slot-name {
     grid-column: 1 / -1;
     justify-content: center;
-    border-left: none; /* Remove left border on mobile */
+    border-left: none; 
     border-top: 1.5px solid var(--accent-primary);
     padding-left: 0;
+    padding-top: 10px;
     margin-bottom: 0.5rem;
   }
   
