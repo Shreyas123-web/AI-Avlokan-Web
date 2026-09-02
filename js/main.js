@@ -1,5 +1,12 @@
+/**
+ * ==========================================
+ *  MAIN INTERACTION & UI LOGIC
+ * ==========================================
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initScrollSpy(); // UPGRADE: Added automatic active link tracking
   initFAQ();
   initContactForm();
   
@@ -9,14 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Render content if containers exist
   if (typeof renderEvents === 'function') {
-    renderEvents('featured-event-container', true); // Homepage featured
-    renderEvents('all-events-container', false); // Events page
+    renderEvents('featured-event-container', true); 
+    renderEvents('all-events-container', false); 
   }
   
   if (typeof renderTeam === 'function') {
-    renderTeam('team-preview-container', null, true); // Homepage top 7
-    renderTeam('faculty-team-container', 'faculty'); // Team page faculty
-    renderTeam('student-team-container', 'student'); // Team page student
+    renderTeam('team-preview-container', null, true); 
+    renderTeam('faculty-team-container', 'faculty'); 
+    renderTeam('student-team-container', 'student'); 
   }
 
   // Initialize scroll reveal AFTER dynamic elements are inserted
@@ -25,13 +32,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Back to Top button
   initBackToTop();
   
-  // Loading screen logic
+  // UPGRADE: Premium Loading Screen Reveal
   const loader = document.getElementById('loader');
   if (loader) {
     if (!sessionStorage.getItem('siteLoaded')) {
+      // Apply initial blur to body for a smooth boot-up effect
+      document.body.style.filter = 'blur(10px)';
+      document.body.style.transition = 'filter 0.8s ease, transform 0.8s ease';
+      document.body.style.transform = 'scale(1.02)';
+
       setTimeout(() => {
         loader.style.opacity = '0';
-        setTimeout(() => loader.remove(), 500);
+        document.body.style.filter = 'blur(0px)';
+        document.body.style.transform = 'scale(1)';
+        
+        setTimeout(() => {
+          loader.remove();
+          // Cleanup inline styles
+          document.body.style.filter = '';
+          document.body.style.transform = '';
+          document.body.style.transition = '';
+        }, 800);
+        
         sessionStorage.setItem('siteLoaded', 'true');
       }, 800);
     } else {
@@ -49,7 +71,6 @@ function initNavbar() {
 
   if (!navbar) return;
 
-  let lastScrollY = window.scrollY;
   let ticking = false;
 
   window.addEventListener('scroll', () => {
@@ -70,7 +91,6 @@ function initNavbar() {
           scrollProgress.style.width = scrolled + "%";
         }
 
-        lastScrollY = window.scrollY;
         ticking = false;
       });
       ticking = true;
@@ -97,6 +117,32 @@ function initNavbar() {
       });
     });
   }
+}
+
+/* --- UPGRADE: ScrollSpy Logic --- */
+function initScrollSpy() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  
+  if (sections.length === 0 || navLinks.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { 
+    rootMargin: '-40% 0px -60% 0px' // Triggers when section is roughly in the middle of screen
+  });
+  
+  sections.forEach(sec => observer.observe(sec));
 }
 
 /* --- Scroll Reveal Logic --- */
@@ -144,6 +190,7 @@ function initCountdown() {
       messageContainer.style.display = 'block';
       
       if (now <= endOfDay) {
+        // UPGRADE: Fixed date mismatch
         messageContainer.innerHTML = `
           <div class="status-card live">
             <div class="status-indicator">
@@ -151,10 +198,11 @@ function initCountdown() {
               <span class="status-text">HAPPENING NOW</span>
             </div>
             <h2 class="status-title">AI Avlokan is Live!</h2>
-            <p class="status-date">Join the action today, 25 September 2026</p>
+            <p class="status-date">Join the action today, 29 September 2026</p>
           </div>
         `;
       } else {
+        // UPGRADE: Fixed date mismatch
         messageContainer.innerHTML = `
           <div class="status-card concluded">
             <div class="status-indicator">
@@ -162,7 +210,7 @@ function initCountdown() {
               <span class="status-text">EVENT CONCLUDED</span>
             </div>
             <h2 class="status-title">Thank You For Joining!</h2>
-            <p class="status-date">25 September 2026 &bull; JNNCE Shivamogga</p>
+            <p class="status-date">29 September 2026 &bull; JNNCE Shivamogga</p>
             <p class="status-subtitle mt-2">See you next year for an even bigger adventure.</p>
           </div>
         `;
@@ -180,7 +228,7 @@ function initCountdown() {
       if (el.textContent !== valStr) {
         el.textContent = valStr;
         el.classList.remove('flip-anim');
-        void el.offsetWidth; // trigger reflow
+        void el.offsetWidth; // trigger reflow to restart animation
         el.classList.add('flip-anim');
       }
     }
@@ -188,124 +236,3 @@ function initCountdown() {
     updateFlip(daysEl, days.toString().padStart(2, '0'));
     updateFlip(hoursEl, hours.toString().padStart(2, '0'));
     updateFlip(minsEl, minutes.toString().padStart(2, '0'));
-    updateFlip(secsEl, seconds.toString().padStart(2, '0'));
-  }
-
-  update();
-  setInterval(update, 1000);
-}
-
-/* --- Stats Counter Logic --- */
-function initStatsCounter() {
-  const stats = document.querySelectorAll('.stat-number');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-target'));
-        const prefix = el.getAttribute('data-prefix') || '';
-        const suffix = el.getAttribute('data-suffix') || '';
-        
-        let start = 0;
-        const duration = 1200; // ms
-        let startTime = null;
-
-        function step(timestamp) {
-          if (!startTime) startTime = timestamp;
-          const progress = Math.min((timestamp - startTime) / duration, 1);
-          const easeOut = 1 - Math.pow(1 - progress, 3);
-          const current = Math.floor(easeOut * target);
-          
-          el.textContent = prefix + current.toLocaleString() + suffix;
-          
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          } else {
-            el.textContent = prefix + target.toLocaleString() + suffix;
-          }
-        }
-        window.requestAnimationFrame(step);
-        obs.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  stats.forEach(stat => observer.observe(stat));
-}
-
-/* --- FAQ Accordion Logic --- */
-function initFAQ() {
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isOpen = item.classList.contains('active');
-      
-      // Close all others
-      faqItems.forEach(other => other.classList.remove('active'));
-      
-      if (!isOpen) {
-        item.classList.add('active');
-      }
-    });
-  });
-}
-
-/* --- Contact Form Logic --- */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('contact-name').value.trim();
-    const email = document.getElementById('contact-email').value.trim();
-    const query = document.getElementById('contact-query').value.trim();
-    
-    if (!name || !email || !query) return;
-
-    const TARGET_EMAIL = "hod_aiml@jnnce.ac.in";
-    const subject = encodeURIComponent(`AI AVLOKAN 2k26 — Query from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nQuery:\n${query}`);
-    
-    window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
-    
-    // Show confirmation
-    const btn = form.querySelector('button');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = 'Opening email app...';
-    btn.classList.add('success');
-    
-    setTimeout(() => {
-      btn.innerHTML = originalText;
-      btn.classList.remove('success');
-      form.reset();
-    }, 3000);
-  });
-}
-
-/* --- Back to Top Logic --- */
-function initBackToTop() {
-  const backToTopBtn = document.getElementById('backToTop');
-  if (!backToTopBtn) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
-    }
-  });
-
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-}
